@@ -1,0 +1,3527 @@
+{
+  "countries": [
+    {
+      "iso2": "AF",
+      "name": "Afghanistan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 1
+    },
+    {
+      "iso2": "AL",
+      "name": "Albania",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 2
+    },
+    {
+      "iso2": "DZ",
+      "name": "Algeria",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 3
+    },
+    {
+      "iso2": "AD",
+      "name": "Andorra",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 4
+    },
+    {
+      "iso2": "AO",
+      "name": "Angola",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 5
+    },
+    {
+      "iso2": "AG",
+      "name": "Antigua and Barbuda",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 6
+    },
+    {
+      "iso2": "AR",
+      "name": "Argentina",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 7
+    },
+    {
+      "iso2": "AM",
+      "name": "Armenia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 8
+    },
+    {
+      "iso2": "AU",
+      "name": "Australia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 9
+    },
+    {
+      "iso2": "AT",
+      "name": "Austria",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 10,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "AZ",
+      "name": "Azerbaijan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 11
+    },
+    {
+      "iso2": "BS",
+      "name": "Bahamas",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 12
+    },
+    {
+      "iso2": "BH",
+      "name": "Bahrain",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 13
+    },
+    {
+      "iso2": "BD",
+      "name": "Bangladesh",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 14
+    },
+    {
+      "iso2": "BB",
+      "name": "Barbados",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 15
+    },
+    {
+      "iso2": "BY",
+      "name": "Belarus",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 16
+    },
+    {
+      "iso2": "BE",
+      "name": "Belgium",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 17,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "BZ",
+      "name": "Belize",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 18
+    },
+    {
+      "iso2": "BJ",
+      "name": "Benin",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 19
+    },
+    {
+      "iso2": "BT",
+      "name": "Bhutan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 20
+    },
+    {
+      "iso2": "BO",
+      "name": "Bolivia",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 21
+    },
+    {
+      "iso2": "BA",
+      "name": "Bosnia and Herzegovina",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 22
+    },
+    {
+      "iso2": "BW",
+      "name": "Botswana",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 23
+    },
+    {
+      "iso2": "BR",
+      "name": "Brazil",
+      "region": "Latin America",
+      "enabled": true,
+      "sortOrder": 24,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "BN",
+      "name": "Brunei",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 25
+    },
+    {
+      "iso2": "BG",
+      "name": "Bulgaria",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 26,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "BF",
+      "name": "Burkina Faso",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 27
+    },
+    {
+      "iso2": "BI",
+      "name": "Burundi",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 28
+    },
+    {
+      "iso2": "CV",
+      "name": "Cabo Verde",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 29
+    },
+    {
+      "iso2": "KH",
+      "name": "Cambodia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 30
+    },
+    {
+      "iso2": "CM",
+      "name": "Cameroon",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 31
+    },
+    {
+      "iso2": "CA",
+      "name": "Canada",
+      "region": "North America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 32
+    },
+    {
+      "iso2": "CF",
+      "name": "Central African Republic",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 33
+    },
+    {
+      "iso2": "TD",
+      "name": "Chad",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 34
+    },
+    {
+      "iso2": "CL",
+      "name": "Chile",
+      "region": "Latin America",
+      "enabled": true,
+      "sortOrder": 35,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "CN",
+      "name": "China",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 36,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "CO",
+      "name": "Colombia",
+      "region": "Latin America",
+      "enabled": true,
+      "sortOrder": 37,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "KM",
+      "name": "Comoros",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 38
+    },
+    {
+      "iso2": "CG",
+      "name": "Congo",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 39
+    },
+    {
+      "iso2": "CK",
+      "name": "Cook Islands",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 40
+    },
+    {
+      "iso2": "CR",
+      "name": "Costa Rica",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 41
+    },
+    {
+      "iso2": "HR",
+      "name": "Croatia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 42,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "CU",
+      "name": "Cuba",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 43
+    },
+    {
+      "iso2": "CY",
+      "name": "Cyprus",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 44
+    },
+    {
+      "iso2": "CZ",
+      "name": "Czech Republic",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 45,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "CI",
+      "name": "Côte d'Ivoire",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 46
+    },
+    {
+      "iso2": "CD",
+      "name": "Democratic Republic of the Congo",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 47
+    },
+    {
+      "iso2": "DK",
+      "name": "Denmark",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 48,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "DJ",
+      "name": "Djibouti",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 49
+    },
+    {
+      "iso2": "DM",
+      "name": "Dominica",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 50
+    },
+    {
+      "iso2": "DO",
+      "name": "Dominican Republic",
+      "region": "Latin America",
+      "enabled": true,
+      "sortOrder": 51,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "EC",
+      "name": "Ecuador",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 52
+    },
+    {
+      "iso2": "EG",
+      "name": "Egypt",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 53
+    },
+    {
+      "iso2": "SV",
+      "name": "El Salvador",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 54
+    },
+    {
+      "iso2": "GQ",
+      "name": "Equatorial Guinea",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 55
+    },
+    {
+      "iso2": "ER",
+      "name": "Eritrea",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 56
+    },
+    {
+      "iso2": "EE",
+      "name": "Estonia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 57,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SZ",
+      "name": "Eswatini",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 58
+    },
+    {
+      "iso2": "ET",
+      "name": "Ethiopia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 59
+    },
+    {
+      "iso2": "FJ",
+      "name": "Fiji",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 60
+    },
+    {
+      "iso2": "FI",
+      "name": "Finland",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 61,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "FR",
+      "name": "France",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 62,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "GA",
+      "name": "Gabon",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 63
+    },
+    {
+      "iso2": "GM",
+      "name": "Gambia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 64
+    },
+    {
+      "iso2": "GE",
+      "name": "Georgia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 65
+    },
+    {
+      "iso2": "DE",
+      "name": "Germany",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 66,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "GH",
+      "name": "Ghana",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 67
+    },
+    {
+      "iso2": "GR",
+      "name": "Greece",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 68,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "GD",
+      "name": "Grenada",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 69
+    },
+    {
+      "iso2": "GT",
+      "name": "Guatemala",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 70
+    },
+    {
+      "iso2": "GN",
+      "name": "Guinea",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 71
+    },
+    {
+      "iso2": "GW",
+      "name": "Guinea-Bissau",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 72
+    },
+    {
+      "iso2": "GY",
+      "name": "Guyana",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 73
+    },
+    {
+      "iso2": "HT",
+      "name": "Haiti",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 74
+    },
+    {
+      "iso2": "HN",
+      "name": "Honduras",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 75
+    },
+    {
+      "iso2": "HK",
+      "name": "Hong Kong",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 76
+    },
+    {
+      "iso2": "HU",
+      "name": "Hungary",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 77
+    },
+    {
+      "iso2": "IS",
+      "name": "Iceland",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 78,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "IN",
+      "name": "India",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 79,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "ID",
+      "name": "Indonesia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 80,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "IR",
+      "name": "Iran",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 81
+    },
+    {
+      "iso2": "IQ",
+      "name": "Iraq",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 82
+    },
+    {
+      "iso2": "IE",
+      "name": "Ireland",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 83
+    },
+    {
+      "iso2": "IL",
+      "name": "Israel",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 84
+    },
+    {
+      "iso2": "IT",
+      "name": "Italy",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 85,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "JM",
+      "name": "Jamaica",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 86
+    },
+    {
+      "iso2": "JP",
+      "name": "Japan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 87
+    },
+    {
+      "iso2": "JO",
+      "name": "Jordan",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 88
+    },
+    {
+      "iso2": "KZ",
+      "name": "Kazakhstan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 89
+    },
+    {
+      "iso2": "KE",
+      "name": "Kenya",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 90
+    },
+    {
+      "iso2": "KI",
+      "name": "Kiribati",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 91
+    },
+    {
+      "iso2": "KW",
+      "name": "Kuwait",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 92
+    },
+    {
+      "iso2": "KG",
+      "name": "Kyrgyzstan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 93
+    },
+    {
+      "iso2": "LU",
+      "name": "LU",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 94,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "LA",
+      "name": "Laos",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 95
+    },
+    {
+      "iso2": "LV",
+      "name": "Latvia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 96,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "LB",
+      "name": "Lebanon",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 97
+    },
+    {
+      "iso2": "LS",
+      "name": "Lesotho",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 98
+    },
+    {
+      "iso2": "LR",
+      "name": "Liberia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 99
+    },
+    {
+      "iso2": "LY",
+      "name": "Libya",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 100
+    },
+    {
+      "iso2": "LT",
+      "name": "Lithuania",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 101,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "MG",
+      "name": "Madagascar",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 102
+    },
+    {
+      "iso2": "MW",
+      "name": "Malawi",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 103
+    },
+    {
+      "iso2": "MY",
+      "name": "Malaysia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 104,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "MV",
+      "name": "Maldives",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 105
+    },
+    {
+      "iso2": "ML",
+      "name": "Mali",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 106
+    },
+    {
+      "iso2": "MT",
+      "name": "Malta",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 107
+    },
+    {
+      "iso2": "MH",
+      "name": "Marshall Islands",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 108
+    },
+    {
+      "iso2": "MR",
+      "name": "Mauritania",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 109
+    },
+    {
+      "iso2": "MU",
+      "name": "Mauritius",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 110
+    },
+    {
+      "iso2": "MX",
+      "name": "Mexico",
+      "region": "Latin America",
+      "enabled": true,
+      "sortOrder": 111,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "FM",
+      "name": "Micronesia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 112
+    },
+    {
+      "iso2": "MD",
+      "name": "Moldova",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 113
+    },
+    {
+      "iso2": "MC",
+      "name": "Monaco",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 114
+    },
+    {
+      "iso2": "MN",
+      "name": "Mongolia",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 115
+    },
+    {
+      "iso2": "ME",
+      "name": "Montenegro",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 116
+    },
+    {
+      "iso2": "MA",
+      "name": "Morocco",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 117
+    },
+    {
+      "iso2": "MZ",
+      "name": "Mozambique",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 118
+    },
+    {
+      "iso2": "MM",
+      "name": "Myanmar",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 119
+    },
+    {
+      "iso2": "NA",
+      "name": "Namibia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 120
+    },
+    {
+      "iso2": "NR",
+      "name": "Nauru",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 121
+    },
+    {
+      "iso2": "NP",
+      "name": "Nepal",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 122
+    },
+    {
+      "iso2": "NL",
+      "name": "Netherlands",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 123,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "NZ",
+      "name": "New Zealand",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 124
+    },
+    {
+      "iso2": "NI",
+      "name": "Nicaragua",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 125
+    },
+    {
+      "iso2": "NE",
+      "name": "Niger",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 126
+    },
+    {
+      "iso2": "NG",
+      "name": "Nigeria",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 127
+    },
+    {
+      "iso2": "KP",
+      "name": "North Korea",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 128
+    },
+    {
+      "iso2": "MK",
+      "name": "North Macedonia",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 129
+    },
+    {
+      "iso2": "NO",
+      "name": "Norway",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 130,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "OM",
+      "name": "Oman",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 131
+    },
+    {
+      "iso2": "PK",
+      "name": "Pakistan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 132
+    },
+    {
+      "iso2": "PW",
+      "name": "Palau",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 133
+    },
+    {
+      "iso2": "PA",
+      "name": "Panama",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 134
+    },
+    {
+      "iso2": "PG",
+      "name": "Papua New Guinea",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 135
+    },
+    {
+      "iso2": "PY",
+      "name": "Paraguay",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 136
+    },
+    {
+      "iso2": "PE",
+      "name": "Peru",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 137
+    },
+    {
+      "iso2": "PH",
+      "name": "Philippines",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 138
+    },
+    {
+      "iso2": "PL",
+      "name": "Poland",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 139,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "PT",
+      "name": "Portugal",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 140,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "QA",
+      "name": "Qatar",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 141
+    },
+    {
+      "iso2": "RO",
+      "name": "Romania",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 142,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "RU",
+      "name": "Russia",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 143
+    },
+    {
+      "iso2": "RW",
+      "name": "Rwanda",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 144
+    },
+    {
+      "iso2": "KN",
+      "name": "Saint Kitts and Nevis",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 145
+    },
+    {
+      "iso2": "LC",
+      "name": "Saint Lucia",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 146
+    },
+    {
+      "iso2": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 147
+    },
+    {
+      "iso2": "WS",
+      "name": "Samoa",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 148
+    },
+    {
+      "iso2": "SM",
+      "name": "San Marino",
+      "region": "Europe",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 149
+    },
+    {
+      "iso2": "ST",
+      "name": "Sao Tome and Principe",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 150
+    },
+    {
+      "iso2": "SA",
+      "name": "Saudi Arabia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 151
+    },
+    {
+      "iso2": "SN",
+      "name": "Senegal",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 152
+    },
+    {
+      "iso2": "RS",
+      "name": "Serbia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 153,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SC",
+      "name": "Seychelles",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 154
+    },
+    {
+      "iso2": "SL",
+      "name": "Sierra Leone",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 155
+    },
+    {
+      "iso2": "SG",
+      "name": "Singapore",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 156,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SK",
+      "name": "Slovakia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 157,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SI",
+      "name": "Slovenia",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 158,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SB",
+      "name": "Solomon Islands",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 159
+    },
+    {
+      "iso2": "SO",
+      "name": "Somalia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 160
+    },
+    {
+      "iso2": "ZA",
+      "name": "South Africa",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "sortOrder": 161,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "KR",
+      "name": "South Korea",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 162
+    },
+    {
+      "iso2": "SS",
+      "name": "South Sudan",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 163
+    },
+    {
+      "iso2": "ES",
+      "name": "Spain",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 164,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "LK",
+      "name": "Sri Lanka",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 165
+    },
+    {
+      "iso2": "SD",
+      "name": "Sudan",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 166
+    },
+    {
+      "iso2": "SR",
+      "name": "Suriname",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 167
+    },
+    {
+      "iso2": "SE",
+      "name": "Sweden",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 168,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "CH",
+      "name": "Switzerland",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 169,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "SY",
+      "name": "Syria",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 170
+    },
+    {
+      "iso2": "TJ",
+      "name": "Tajikistan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 171
+    },
+    {
+      "iso2": "TZ",
+      "name": "Tanzania",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 172
+    },
+    {
+      "iso2": "TH",
+      "name": "Thailand",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 173,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "TL",
+      "name": "Timor-Leste",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 174
+    },
+    {
+      "iso2": "TG",
+      "name": "Togo",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 175
+    },
+    {
+      "iso2": "TO",
+      "name": "Tonga",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 176
+    },
+    {
+      "iso2": "TT",
+      "name": "Trinidad and Tobago",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 177
+    },
+    {
+      "iso2": "TN",
+      "name": "Tunisia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 178
+    },
+    {
+      "iso2": "TR",
+      "name": "Turkey",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "sortOrder": 179,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "TM",
+      "name": "Turkmenistan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 180
+    },
+    {
+      "iso2": "TV",
+      "name": "Tuvalu",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 181
+    },
+    {
+      "iso2": "UG",
+      "name": "Uganda",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 182
+    },
+    {
+      "iso2": "UA",
+      "name": "Ukraine",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 183,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "AE",
+      "name": "United Arab Emirates",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "sortOrder": 184,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "GB",
+      "name": "United Kingdom",
+      "region": "Europe",
+      "enabled": true,
+      "sortOrder": 185,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "US",
+      "name": "United States",
+      "region": "North America",
+      "enabled": true,
+      "sortOrder": 186,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "UY",
+      "name": "Uruguay",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 187
+    },
+    {
+      "iso2": "UZ",
+      "name": "Uzbekistan",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 188
+    },
+    {
+      "iso2": "VU",
+      "name": "Vanuatu",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 189
+    },
+    {
+      "iso2": "VE",
+      "name": "Venezuela",
+      "region": "Latin America",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 190
+    },
+    {
+      "iso2": "VN",
+      "name": "Vietnam",
+      "region": "Asia Pacific",
+      "enabled": true,
+      "sortOrder": 191,
+      "coverageSupported": true
+    },
+    {
+      "iso2": "YE",
+      "name": "Yemen",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 192
+    },
+    {
+      "iso2": "ZM",
+      "name": "Zambia",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 193
+    },
+    {
+      "iso2": "ZW",
+      "name": "Zimbabwe",
+      "region": "Middle East & Africa",
+      "enabled": true,
+      "coverageSupported": true,
+      "sortOrder": 194
+    }
+  ],
+  "providers": [
+    {
+      "slug": "adacom",
+      "name": "Adacom",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "ADACOM 是一家总部位于希腊的顶级网络安全公司及欧盟 eIDAS 认证的 QTSP，提供高安全性的合规数字证书、身份验证和远程签名 API 解决方案。",
+        "zh": "ADACOM 是一家总部位于希腊的顶级网络安全公司及欧盟 eIDAS 认证的 QTSP，提供高安全性的合规数字证书、身份验证和远程签名 API 解决方案。"
+      },
+      "countries": [
+        "GR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 1,
+      "tag": "EUTL",
+      "originCountry": "希腊",
+      "region": "Europe",
+      "website": "adacom.com/company/about-us",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "austrian-handy-signatur",
+      "name": "Austrian Handy-Signatur",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "现已升级为 ID Austria。由奥地利领先的信任服务提供商 A-Trust 运营，旨在为公民和企业提供符合 eIDAS 最高标准的安全身份验证和 QES 签名服务。",
+        "zh": "现已升级为 ID Austria。由奥地利领先的信任服务提供商 A-Trust 运营，旨在为公民和企业提供符合 eIDAS 最高标准的安全身份验证和 QES 签名服务。"
+      },
+      "countries": [
+        "AT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 2,
+      "tag": "CSC",
+      "originCountry": "奥地利",
+      "region": "Europe",
+      "website": "https://www.a-trust.at/",
+      "learnMoreUrl": "https://www.a-trust.at/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "belgian-id-card",
+      "name": "Belgian ID card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Belgian eID 是由比利时政府官方发行的国家电子身份证，内置智能卡芯片，使公民能够进行高度安全的在线身份验证并创建受法律保护的合格电子签名 (QES)。",
+        "zh": "Belgian eID 是由比利时政府官方发行的国家电子身份证，内置智能卡芯片，使公民能够进行高度安全的在线身份验证并创建受法律保护的合格电子签名 (QES)。"
+      },
+      "countries": [
+        "BE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 3,
+      "tag": "EUTL",
+      "originCountry": "比利时",
+      "region": "Europe",
+      "website": "https://www.ibz.rrn.fgov.be/fr/citoyen/documents-didentite/eid",
+      "learnMoreUrl": "https://www.ibz.rrn.fgov.be/fr/citoyen/documents-didentite/eid",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "croatian-id-card",
+      "name": "Croatian ID Card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Croatian ID Card (eOI) 是克罗地亚内政部官方发行的国家电子身份证，内嵌智能卡芯片，使该国公民能够进行安全的数字身份验证并生成受欧洲 eIDAS 法规认可的合格电子签名 (QES)。",
+        "zh": "Croatian ID Card (eOI) 是克罗地亚内政部官方发行的国家电子身份证，内嵌智能卡芯片，使该国公民能够进行安全的数字身份验证并生成受欧洲 eIDAS 法规认可的合格电子签名 (QES)。"
+      },
+      "countries": [
+        "HR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 4,
+      "tag": "EUTL",
+      "originCountry": "克罗地亚",
+      "region": "Europe",
+      "website": "https://www.eid.hr/",
+      "learnMoreUrl": "https://www.eid.hr/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "mojeid",
+      "name": "MojeId",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "MojeID 是一种由捷克国家域名注册局 (CZ.NIC) 运营的高安全数字身份认证服务，允许公民通过统一且移动端友好的凭据在全欧洲安全访问电子服务并生成高级电子签名 (AdES)。",
+        "zh": "MojeID 是一种由捷克国家域名注册局 (CZ.NIC) 运营的高安全数字身份认证服务，允许公民通过统一且移动端友好的凭据在全欧洲安全访问电子服务并生成高级电子签名 (AdES)。"
+      },
+      "countries": [
+        "CZ"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 5,
+      "tag": "政府身份ID",
+      "originCountry": "捷克",
+      "region": "Europe",
+      "website": "https://www.mojeid.cz/",
+      "learnMoreUrl": "https://www.mojeid.cz/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "denmark-mitid",
+      "name": "Denmark MitID",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "MitID 是一款由丹麦政府打造的国民电子身份验证与数字签名系统，基于严密的软硬件令牌确立用户的真实身份，支持不同场景下多层级(AdES至QES)的电子协议缔结。",
+        "zh": "MitID 是一款由丹麦政府打造的国民电子身份验证与数字签名系统，基于严密的软硬件令牌确立用户的真实身份，支持不同场景下多层级(AdES至QES)的电子协议缔结。"
+      },
+      "countries": [
+        "DK"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 6,
+      "tag": "政府身份ID",
+      "originCountry": "丹麦",
+      "region": "Europe",
+      "website": "https://www.mitid.dk/",
+      "learnMoreUrl": "https://www.mitid.dk/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "d-trust-sign-me",
+      "name": "D-Trust sign-me",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "D-Trust sign-me 是德国联邦印钞厂旗下完全基于 Web 的远程解决方案，让个人和企业无需硬件即可从任何设备创建具有法律约束力的 eIDAS 合规电子签名。它是啥：它是 D-Trust 官方打造的云端商业电子签名服务/平台用户可以用视频认证（Video-Ident）或德国国家身份证（eID）完成在线实名。实名后，D-Trust 会把属于用户的最高级别证书（QES）锁在云端。",
+        "zh": "D-Trust sign-me 是德国联邦印钞厂旗下完全基于 Web 的远程解决方案，让个人和企业无需硬件即可从任何设备创建具有法律约束力的 eIDAS 合规电子签名。它是啥：它是 D-Trust 官方打造的云端商业电子签名服务/平台用户可以用视频认证（Video-Ident）或德国国家身份证（eID）完成在线实名。实名后，D-Trust 会把属于用户的最高级别证书（QES）锁在云端。"
+      },
+      "countries": [
+        "DE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 7,
+      "tag": "EUTL",
+      "originCountry": "德国",
+      "region": "Europe",
+      "website": "https://www.d-trust.net/en/solutions/sign-me-portal",
+      "learnMoreUrl": "https://www.d-trust.net/en/solutions/sign-me-portal",
+      "hashSigning": "不支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "idin",
+      "name": "IDIN",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "Dutch iDIN signature (AdES light) 是一种由第三方平台提供的合规签名方案，它将荷兰国民网银 iDIN 的严密身份核查日志与防篡改数字证书强行绑定，从而生成受法律认可的高性价比电子签名。",
+        "zh": "Dutch iDIN signature (AdES light) 是一种由第三方平台提供的合规签名方案，它将荷兰国民网银 iDIN 的严密身份核查日志与防篡改数字证书强行绑定，从而生成受法律认可的高性价比电子签名。"
+      },
+      "countries": [
+        "NL"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 8,
+      "tag": "Bank-led IdP",
+      "originCountry": "荷兰",
+      "region": "Europe",
+      "website": "https://www.idin.nl/",
+      "learnMoreUrl": "https://www.idin.nl/",
+      "hashSigning": "不支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "estonian-id-card",
+      "name": "Estonian ID card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "爱沙尼亚政府发行的国家级实体智能身份证，内嵌加密证书，用于安全的数字认证和具有法律约束力的电子签名。",
+        "zh": "爱沙尼亚政府发行的国家级实体智能身份证，内嵌加密证书，用于安全的数字认证和具有法律约束力的电子签名。"
+      },
+      "countries": [
+        "EE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 9,
+      "tag": "EUTL",
+      "originCountry": "爱沙尼亚",
+      "region": "Europe",
+      "website": "https://www.id.ee/",
+      "learnMoreUrl": "https://www.id.ee/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "estonian-mobile-id",
+      "name": "Estonian Mobile-ID",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "由爱沙尼亚政府认可、与移动运营商合作推出的基于特制 SIM 卡的数字身份解决方案，让手机直接具备高安全级数字验证与签署能力。",
+        "zh": "由爱沙尼亚政府认可、与移动运营商合作推出的基于特制 SIM 卡的数字身份解决方案，让手机直接具备高安全级数字验证与签署能力。"
+      },
+      "countries": [
+        "EE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 10,
+      "tag": "EUTL",
+      "originCountry": "爱沙尼亚",
+      "region": "Europe",
+      "website": "https://www.id.ee/",
+      "learnMoreUrl": "https://www.id.ee/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "evrotrust",
+      "name": "Evrotrust",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Evrotrust 是一家泛欧的合格信任服务提供商，致力于通过智能手机应用程序为全球用户提供无缝的远程身份验证和具备最高法律约束力的数字签名服务。",
+        "zh": "Evrotrust 是一家泛欧的合格信任服务提供商，致力于通过智能手机应用程序为全球用户提供无缝的远程身份验证和具备最高法律约束力的数字签名服务。"
+      },
+      "countries": [
+        "BG"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 11,
+      "tag": "AATL",
+      "originCountry": "保加利亚\n(Bulgaria)",
+      "region": "Europe",
+      "website": "https://evrotrust.com/",
+      "learnMoreUrl": "https://evrotrust.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "finnish-id-card",
+      "name": "Finnish ID card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "由芬兰政府颁发的电子身份证件，配备包含公民证书的微芯片，用于极其安全的在线身份验证和具有法律效力的数字签名。",
+        "zh": "由芬兰政府颁发的电子身份证件，配备包含公民证书的微芯片，用于极其安全的在线身份验证和具有法律效力的数字签名。"
+      },
+      "countries": [
+        "FI"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": true,
+      "sortOrder": 12,
+      "tag": "EUTL",
+      "originCountry": "芬兰",
+      "region": "Europe",
+      "website": "办卡与政策官网：https://poliisi.fi/en/identity-card",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "finnish-trust-network-luottamusverkosto",
+      "name": "Finnish Trust Network / Luottamusverkosto",
+      "category": "EID AUTHENTICATION",
+      "providerType": "AATL聚合CA",
+      "cardSummary": {
+        "en": "利用芬兰国家信任网络 (FTN) 验证用户身份后，由聚合平台极速加盖企业级电子印章的高级电子签名方案。",
+        "zh": "利用芬兰国家信任网络 (FTN) 验证用户身份后，由聚合平台极速加盖企业级电子印章的高级电子签名方案。"
+      },
+      "countries": [
+        "FI"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 13,
+      "tag": "EUTL,CSC\n\n\n证据（eID Easy 方法底层路由）: eID Easy - FTN Supported Methods （在页面下方的 Action type 栏可以看到明确的 fi-ftn-intesi-adv-signature）。在做底层 CA 的业务架构对比时，搞清楚“谁负责验证身份（IdP）”和“谁负责下发证书（CA）”是最容易踩坑的地方。",
+      "originCountry": "芬兰",
+      "region": "Europe",
+      "website": "https://www.traficom.fi/en/communications/information-security/trust-network-electronic-identification",
+      "learnMoreUrl": "https://www.traficom.fi/en/communications/information-security/trust-network-electronic-identification",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "certeurope-usb-token",
+      "name": "CertEurope USB token",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "CertEurope 是 InfoCert 集团旗下的法国领先信任服务提供商（QTSP），提供符合 eIDAS 和 RGS 标准的数字证书、时间戳及电子签名解决方案。",
+        "zh": "CertEurope 是 InfoCert 集团旗下的法国领先信任服务提供商（QTSP），提供符合 eIDAS 和 RGS 标准的数字证书、时间戳及电子签名解决方案。"
+      },
+      "countries": [
+        "FR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 14,
+      "tag": "AATL",
+      "originCountry": "法国",
+      "region": "Europe",
+      "website": "https://www.certeurope.fr/",
+      "learnMoreUrl": "https://www.certeurope.fr/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "freja-eid",
+      "name": "Freja eID",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "Freja eID 是瑞典政府批准的移动电子身份解决方案，为全球用户提供高度安全的在线身份验证及数字签名服务。",
+        "zh": "Freja eID 是瑞典政府批准的移动电子身份解决方案，为全球用户提供高度安全的在线身份验证及数字签名服务。"
+      },
+      "countries": [
+        "DK",
+        "NO",
+        "SE",
+        "FI"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 15,
+      "tag": "政府身份ID",
+      "originCountry": "瑞典",
+      "region": "Europe",
+      "website": "https://frejaeid.com/",
+      "learnMoreUrl": "https://frejaeid.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "未查询到",
+      "name": "(未查询到）",
+      "category": "ESIGNATURE",
+      "providerType": "CA",
+      "cardSummary": {
+        "en": "",
+        "zh": ""
+      },
+      "countries": [
+        "DE"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 16,
+      "tag": "",
+      "originCountry": "德国",
+      "region": "Europe",
+      "website": "",
+      "learnMoreUrl": null,
+      "hashSigning": "",
+      "enterpriseCert": ""
+    },
+    {
+      "slug": "halcom-one",
+      "name": "Halcom One",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Halcom One 是由斯洛文尼亚领军 QTSP（Halcom）推出的一款符合 eIDAS 法规的移动端云认证与合格电子签名（QES）服务。",
+        "zh": "Halcom One 是由斯洛文尼亚领军 QTSP（Halcom）推出的一款符合 eIDAS 法规的移动端云认证与合格电子签名（QES）服务。"
+      },
+      "countries": [
+        "SI",
+        "RS"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 17,
+      "tag": "EUTL",
+      "originCountry": "斯洛文尼亚",
+      "region": "Europe",
+      "website": "https://www.halcom.com/halcom-one/",
+      "learnMoreUrl": "https://www.halcom.com/halcom-one/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "audkenni",
+      "name": "Audkenni",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Auðkenni 是冰岛唯一的国家级电子身份和认证服务提供商，提供符合欧洲 eIDAS 最高标准 (QES) 的数字身份与电子签名服务",
+        "zh": "Auðkenni 是冰岛唯一的国家级电子身份和认证服务提供商，提供符合欧洲 eIDAS 最高标准 (QES) 的数字身份与电子签名服务"
+      },
+      "countries": [
+        "IS"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 18,
+      "tag": "EUTL",
+      "originCountry": "冰岛",
+      "region": "Europe",
+      "website": "https://www.audkenni.is/",
+      "learnMoreUrl": "https://www.audkenni.is/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "infocert",
+      "name": "Infocert",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "InfoCert 是欧洲规模最大的合格信任服务提供商 (QTSP)，通过数字证书、数字身份（SPID）和合规电子签名服务推动企业的数字化转型和最高级别法规遵循。",
+        "zh": "InfoCert 是欧洲规模最大的合格信任服务提供商 (QTSP)，通过数字证书、数字身份（SPID）和合规电子签名服务推动企业的数字化转型和最高级别法规遵循。"
+      },
+      "countries": [
+        "IT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 19,
+      "tag": "AATL",
+      "originCountry": "意大利",
+      "region": "Europe",
+      "website": "https://www.infocert.it/",
+      "learnMoreUrl": "https://www.infocert.it/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "spid",
+      "name": "SPID",
+      "category": "ESIGNATURE",
+      "providerType": "eID Scheme",
+      "cardSummary": {
+        "en": "SPID（公共数字身份系统）是意大利官方建立的国家级电子身份认证体系，使公民和企业能够使用唯一的一组数字凭证访问各类公共行政和私营机构服务。",
+        "zh": "SPID（公共数字身份系统）是意大利官方建立的国家级电子身份认证体系，使公民和企业能够使用唯一的一组数字凭证访问各类公共行政和私营机构服务。"
+      },
+      "countries": [
+        "IT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 20,
+      "tag": "eID Scheme",
+      "originCountry": "意大利",
+      "region": "Europe",
+      "website": "https://www.spid.gov.it/",
+      "learnMoreUrl": "https://www.spid.gov.it/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "itsme",
+      "name": "Itsme",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "itsme 是一款极具代表性的欧洲数字身份移动应用，让用户能通过单一的 App 安全、便捷地证明自身身份并进行具备法律效力的电子签名。",
+        "zh": "itsme 是一款极具代表性的欧洲数字身份移动应用，让用户能通过单一的 App 安全、便捷地证明自身身份并进行具备法律效力的电子签名。"
+      },
+      "countries": [
+        "BE",
+        "LU",
+        "FR",
+        "NL"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 21,
+      "tag": "CSC",
+      "originCountry": "比利时",
+      "region": "Europe",
+      "website": "https://www.itsme-id.com/",
+      "learnMoreUrl": "https://www.itsme-id.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "latvian-eparaksts-mobile",
+      "name": "Latvian eParaksts Mobile",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Latvian eParaksts mobile 是由拉脱维亚政府提供的官方移动数字身份应用，使公民能够仅凭智能手机随时随地生成具有最高法律约束力的合格电子签名。",
+        "zh": "Latvian eParaksts mobile 是由拉脱维亚政府提供的官方移动数字身份应用，使公民能够仅凭智能手机随时随地生成具有最高法律约束力的合格电子签名。"
+      },
+      "countries": [
+        "LV"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 22,
+      "tag": "EUTL",
+      "originCountry": "拉脱维亚",
+      "region": "Europe",
+      "website": "https://www.eparaksts.lv/",
+      "learnMoreUrl": "https://www.eparaksts.lv/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "latvian-id-card",
+      "name": "Latvian ID card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Latvian ID Card 是一款由拉脱维亚政府发行的具有内置安全芯片的国家电子身份实体证件，用于提供强电子认证和合格电子签名。",
+        "zh": "Latvian ID Card 是一款由拉脱维亚政府发行的具有内置安全芯片的国家电子身份实体证件，用于提供强电子认证和合格电子签名。"
+      },
+      "countries": [
+        "LV"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 23,
+      "tag": "EUTL",
+      "originCountry": "拉脱维亚",
+      "region": "Europe",
+      "website": "https://www.pmlp.gov.lv/",
+      "learnMoreUrl": "https://www.pmlp.gov.lv/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "lithuanian-id-card",
+      "name": "Lithuanian ID card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Lithuanian ID Card 是立陶宛政府发行的内置安全芯片的物理电子身份证，允许公民进行高保障水平的身份验证和合格电子签名。",
+        "zh": "Lithuanian ID Card 是立陶宛政府发行的内置安全芯片的物理电子身份证，允许公民进行高保障水平的身份验证和合格电子签名。"
+      },
+      "countries": [
+        "LT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 24,
+      "tag": "EUTL",
+      "originCountry": "立陶宛",
+      "region": "Europe",
+      "website": "https://migracija.lrv.lt/",
+      "learnMoreUrl": "https://migracija.lrv.lt/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "lithuanian-mobile-id",
+      "name": "Lithuanian Mobile ID",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Lithuanian Mobile-ID 是一种基于高安全通信 SIM 卡的移动电子身份和签名解决方案，使立陶宛公民无需额外的读卡硬件即可通过手机完成 QES 签名。",
+        "zh": "Lithuanian Mobile-ID 是一种基于高安全通信 SIM 卡的移动电子身份和签名解决方案，使立陶宛公民无需额外的读卡硬件即可通过手机完成 QES 签名。"
+      },
+      "countries": [
+        "LT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 25,
+      "tag": "EUTL",
+      "originCountry": "立陶宛",
+      "region": "Europe",
+      "website": "https://www.epaslaugos.lt/",
+      "learnMoreUrl": "https://www.epaslaugos.lt/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "norwegian-bank-id",
+      "name": "Norwegian Bank ID",
+      "category": "ESIGNATURE",
+      "providerType": "国家级 eID 与聚合签名平台结合",
+      "cardSummary": {
+        "en": "Norwegian BankID 是由挪威各银行联合发行的个人数字身份系统，用于在数字世界中进行最高级别的安全登录与具有法律约束力的电子签约。",
+        "zh": "Norwegian BankID 是由挪威各银行联合发行的个人数字身份系统，用于在数字世界中进行最高级别的安全登录与具有法律约束力的电子签约。"
+      },
+      "countries": [
+        "NO"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 26,
+      "tag": "Bank-led IdP",
+      "originCountry": "挪威",
+      "region": "Europe",
+      "website": "https://www.bankid.no/en/private/",
+      "learnMoreUrl": "https://www.bankid.no/en/private/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "simplysign",
+      "name": "SimplySign",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "SimplySign 是由波兰 Certum 提供的符合 eIDAS 标准的无介质移动云端合格电子签名解决方案。",
+        "zh": "SimplySign 是由波兰 Certum 提供的符合 eIDAS 标准的无介质移动云端合格电子签名解决方案。"
+      },
+      "countries": [
+        "PL"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 27,
+      "tag": "AATL",
+      "originCountry": "波兰",
+      "region": "Europe",
+      "website": "https://simplysign.certum.pl/",
+      "learnMoreUrl": "https://simplysign.certum.pl/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "chave-movel",
+      "name": "Chave Movel",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Chave Móvel Digital 是葡萄牙的国家级数字移动密钥服务，允许公民和居民仅凭手机即可安全登录门户网站并生成具有法律约束力的合格电子签名。",
+        "zh": "Chave Móvel Digital 是葡萄牙的国家级数字移动密钥服务，允许公民和居民仅凭手机即可安全登录门户网站并生成具有法律约束力的合格电子签名。"
+      },
+      "countries": [
+        "PT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 28,
+      "tag": "EUTL",
+      "originCountry": "葡萄牙",
+      "region": "Europe",
+      "website": "https://www.autenticacao.gov.pt/a-chave-movel-digital",
+      "learnMoreUrl": "https://www.autenticacao.gov.pt/a-chave-movel-digital",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "certsign-usb-token",
+      "name": "certSIGN USB token",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "certSIGN USB Token 是一款安全硬件设备，专为存储数字证书而设计，为用户提供符合 eIDAS 最高标准、高度便携的本地防篡改电子签名能力。",
+        "zh": "certSIGN USB Token 是一款安全硬件设备，专为存储数字证书而设计，为用户提供符合 eIDAS 最高标准、高度便携的本地防篡改电子签名能力。"
+      },
+      "countries": [
+        "RO"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 29,
+      "tag": "AATL",
+      "originCountry": "罗马尼亚",
+      "region": "Europe",
+      "website": "https://www.certsign.ro/",
+      "learnMoreUrl": "https://www.certsign.ro/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "serproid",
+      "name": "SerproID",
+      "category": "ESIGNATURE",
+      "providerType": "AATL聚合CA",
+      "cardSummary": {
+        "en": "SerproID 是一款由巴西国家联邦数据处理局（Serpro）发行的 ICP-Brasil 认证云端数字身份与证书应用，可实现随时随地的具有法律效力的数字签名。\n\n13. 是否需要下载APP",
+        "zh": "SerproID 是一款由巴西国家联邦数据处理局（Serpro）发行的 ICP-Brasil 认证云端数字身份与证书应用，可实现随时随地的具有法律效力的数字签名。\n\n13. 是否需要下载APP"
+      },
+      "countries": [
+        "BR"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 30,
+      "tag": "AATL",
+      "originCountry": "巴西",
+      "region": "Europe",
+      "website": "https://www.serpro.gov.br/",
+      "learnMoreUrl": "https://www.serpro.gov.br/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "smart-id",
+      "name": "Smart-ID",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "Smart-ID 是一款由 SK ID Solutions 打造的、基于移动应用且符合 eIDAS 标准的无卡化合格电子签名及强身份认证解决方案。",
+        "zh": "Smart-ID 是一款由 SK ID Solutions 打造的、基于移动应用且符合 eIDAS 标准的无卡化合格电子签名及强身份认证解决方案。"
+      },
+      "countries": [
+        "LV",
+        "EE",
+        "LT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 31,
+      "tag": "AATL",
+      "originCountry": "爱沙尼亚",
+      "region": "Europe",
+      "website": "https://www.smart-id.com/",
+      "learnMoreUrl": "https://www.smart-id.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "swedish-bankid",
+      "name": "Swedish BankID",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "Swedish BankID 是由瑞典多家银行联合开发的瑞典国民级电子身份验证与电子签名系统。",
+        "zh": "Swedish BankID 是由瑞典多家银行联合开发的瑞典国民级电子身份验证与电子签名系统。"
+      },
+      "countries": [
+        "SE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 32,
+      "tag": "Bank-led IdP",
+      "originCountry": "瑞典",
+      "region": "Europe",
+      "website": "https://www.bankid.com/",
+      "learnMoreUrl": "https://www.bankid.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "trans-sped",
+      "name": "Trans Sped",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "Trans Sped 是一家受 eIDAS 认证的罗马尼亚合格信任服务提供商，其签名在全球医疗医药行业拥有极高权威性。",
+        "zh": "Trans Sped 是一家受 eIDAS 认证的罗马尼亚合格信任服务提供商，其签名在全球医疗医药行业拥有极高权威性。"
+      },
+      "countries": [
+        "RO"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 33,
+      "tag": "AATL",
+      "originCountry": "罗马尼亚",
+      "region": "Europe",
+      "website": "https://www.transsped.ro/",
+      "learnMoreUrl": "https://www.transsped.ro/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "unataca",
+      "name": "Unataca",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "Uanataca 是一家受 eIDAS 认证的欧盟合格信任服务提供商，专注于提供云端高等级数字签名和身份验证解决方案。",
+        "zh": "Uanataca 是一家受 eIDAS 认证的欧盟合格信任服务提供商，专注于提供云端高等级数字签名和身份验证解决方案。"
+      },
+      "countries": [
+        "ES"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 34,
+      "tag": "CSC",
+      "originCountry": "西班牙",
+      "region": "Europe",
+      "website": "https://web.uanataca.com/",
+      "learnMoreUrl": "https://web.uanataca.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "zealid-app",
+      "name": "ZealID app",
+      "category": "ESIGNATURE",
+      "providerType": "AATL聚合CA",
+      "cardSummary": {
+        "en": "ZealiD 是一家总部位于瑞典的合格信托服务提供商 (QTSP)，通过结合 AI 和开放银行技术，为用户提供基于移动端 App 的一站式远程合格电子签名 (QES) 及身份认证服务。",
+        "zh": "ZealiD 是一家总部位于瑞典的合格信托服务提供商 (QTSP)，通过结合 AI 和开放银行技术，为用户提供基于移动端 App 的一站式远程合格电子签名 (QES) 及身份认证服务。"
+      },
+      "countries": [
+        "SI",
+        "RO",
+        "SK",
+        "RS",
+        "UA",
+        "SG",
+        "PT",
+        "ES",
+        "TR",
+        "DE",
+        "PL",
+        "TH",
+        "SE",
+        "CH",
+        "US",
+        "GB",
+        "ZA"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 35,
+      "tag": "AATL",
+      "originCountry": "瑞典",
+      "region": "Europe",
+      "website": "https://www.zealid.com/",
+      "learnMoreUrl": "https://www.zealid.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "intesi",
+      "name": "INTESI",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Intesi Group 是一家总部位于意大利的合格信任服务提供商暨云签名联盟创始成员，致力于提供符合 eIDAS 法规、并在全球受 Adobe 信任的云端身份验证与电子签名解决方案。",
+        "zh": "Intesi Group 是一家总部位于意大利的合格信任服务提供商暨云签名联盟创始成员，致力于提供符合 eIDAS 法规、并在全球受 Adobe 信任的云端身份验证与电子签名解决方案。"
+      },
+      "countries": [
+        "IT"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 36,
+      "tag": "AATL",
+      "originCountry": "意大利",
+      "region": "Europe",
+      "website": "https://www.intesigroup.com/en/",
+      "learnMoreUrl": "https://www.intesigroup.com/en/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "vida",
+      "name": "VIDA",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "VIDA 是一家受印度尼西亚通信与数字事务部认证的国家级证书颁发机构 (CA)，也是印尼首家入选 AATL 的机构，提供基于生物识别的安全数字身份与具备完全法律约束力的电子签名服务。",
+        "zh": "VIDA 是一家受印度尼西亚通信与数字事务部认证的国家级证书颁发机构 (CA)，也是印尼首家入选 AATL 的机构，提供基于生物识别的安全数字身份与具备完全法律约束力的电子签名服务。"
+      },
+      "countries": [
+        "ID",
+        "IN"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 37,
+      "tag": "AATL",
+      "originCountry": "印度尼西亚",
+      "region": "Asia Pacific",
+      "website": "https://vida.id/id/",
+      "learnMoreUrl": "https://vida.id/id/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "digi-cert",
+      "name": "Digi-Cert",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "DigiCert 是一家全球领先的数字证书颁发机构 (CA) 与 PKI 解决方案提供商，提供受 Adobe 与欧盟 eIDAS 广泛信任的高级身份验证、TLS/SSL 以及企业级文档云签名服务。",
+        "zh": "DigiCert 是一家全球领先的数字证书颁发机构 (CA) 与 PKI 解决方案提供商，提供受 Adobe 与欧盟 eIDAS 广泛信任的高级身份验证、TLS/SSL 以及企业级文档云签名服务。"
+      },
+      "countries": [
+        "US"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 38,
+      "tag": "AATL",
+      "originCountry": "美国",
+      "region": "Global",
+      "website": "https://www.digicert.com/",
+      "learnMoreUrl": "https://www.digicert.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "globalsign",
+      "name": "GlobalSign",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "GlobalSign 是一家全球领先的商业认证机构 (CA) 与合格信任服务提供商 (QTSP)，致力于提供受全球 Adobe 信任且符合 eIDAS 法规的云端身份验证、PKI 证书与数字签名解决方案。",
+        "zh": "GlobalSign 是一家全球领先的商业认证机构 (CA) 与合格信任服务提供商 (QTSP)，致力于提供受全球 Adobe 信任且符合 eIDAS 法规的云端身份验证、PKI 证书与数字签名解决方案。"
+      },
+      "countries": [
+        "BE"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 39,
+      "tag": "AATL",
+      "originCountry": "比利时",
+      "region": "Global",
+      "website": "https://www.globalsign.com/en/digital-signatures/cloud/docusign",
+      "learnMoreUrl": "https://www.globalsign.com/en/digital-signatures/cloud/docusign",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "singpass",
+      "name": "SingPass",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Singpass 依托新加坡国家认证机构 (NCA)，是新加坡政府推出的国家级数字身份体系，为公民和企业提供基于加密硬件、符合极高隐私标准且具备完全法律约束力的云端数字签名服务。",
+        "zh": "Singpass 依托新加坡国家认证机构 (NCA)，是新加坡政府推出的国家级数字身份体系，为公民和企业提供基于加密硬件、符合极高隐私标准且具备完全法律约束力的云端数字签名服务。"
+      },
+      "countries": [
+        "SG"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 40,
+      "tag": "政府身份ID",
+      "originCountry": "新加坡",
+      "region": "Asia Pacific",
+      "website": "https://www.singpass.gov.sg/main/",
+      "learnMoreUrl": "https://www.singpass.gov.sg/main/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "national-digital-identity",
+      "name": "National Digital Identity",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "由新加坡政府科技局（GovTech）主导开发，NDI 旨在为政府机关、私营企业和广大民众之间构建一个高度互信、无缝衔接的数字生态系统，让用户能够安全、便捷地在网上及线下完成身份验证和授权交易。",
+        "zh": "由新加坡政府科技局（GovTech）主导开发，NDI 旨在为政府机关、私营企业和广大民众之间构建一个高度互信、无缝衔接的数字生态系统，让用户能够安全、便捷地在网上及线下完成身份验证和授权交易。"
+      },
+      "countries": [
+        "SG"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 41,
+      "tag": "CSC",
+      "originCountry": "新加坡",
+      "region": "Asia Pacific",
+      "website": "https://www.tech.gov.sg/",
+      "learnMoreUrl": "https://www.tech.gov.sg/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "iamsmart香港智方便",
+      "name": "iAMSmart（香港智方便）",
+      "category": "EID AUTHENTICATION",
+      "providerType": "地区CA",
+      "cardSummary": {
+        "en": "“智方便”是香港政府提供的官方一站式数字身份平台，为香港居民提供身份认证及具法律效力的数字签名（“智方便+”）服务。",
+        "zh": "“智方便”是香港政府提供的官方一站式数字身份平台，为香港居民提供身份认证及具法律效力的数字签名（“智方便+”）服务。"
+      },
+      "countries": [
+        "HK",
+        "CN"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 42,
+      "tag": "政府身份ID",
+      "originCountry": "中国香港",
+      "region": "Europe",
+      "website": "https://iamsmart.cyberport.hk",
+      "learnMoreUrl": "https://iamsmart.cyberport.hk",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "digi-sign香港贸易通",
+      "name": "Digi-Sign（香港贸易通）",
+      "category": "ESIGNATURE",
+      "providerType": "地区CA",
+      "cardSummary": {
+        "en": "Digi-Sign（电子核证服务有限公司）是贸易通全资拥有的附属公司，为受香港特区政府认可、合法提供具法律效力数码证书的商业核证机关。",
+        "zh": "Digi-Sign（电子核证服务有限公司）是贸易通全资拥有的附属公司，为受香港特区政府认可、合法提供具法律效力数码证书的商业核证机关。"
+      },
+      "countries": [
+        "HK",
+        "CN"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 43,
+      "tag": "AATL",
+      "originCountry": "中国香港",
+      "region": "Europe",
+      "website": "https://www.tradelink.com.hk/sc/",
+      "learnMoreUrl": "https://www.tradelink.com.hk/sc/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "fpt",
+      "name": "FPT",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "FPT-CA 是越南 FPT 集团旗下的权威数字证书服务中心，也是越南首批获得国家信息传媒部许可、为该国企业和个人提供具法律效力数字签名服务的领先提供商。",
+        "zh": "FPT-CA 是越南 FPT 集团旗下的权威数字证书服务中心，也是越南首批获得国家信息传媒部许可、为该国企业和个人提供具法律效力数字签名服务的领先提供商。"
+      },
+      "countries": [
+        "VN"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 44,
+      "tag": "CA标签",
+      "originCountry": "越南",
+      "region": "Europe",
+      "website": "https://fpt-ca.com.vn/",
+      "learnMoreUrl": "https://fpt-ca.com.vn/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "soluti",
+      "name": "Soluti",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Soluti 是巴西最大的数字认证和身份安全服务提供商之一，专注于提供符合 ICP-Brasil 标准的数字证书、云签名及企业加密解决方案。",
+        "zh": "Soluti 是巴西最大的数字认证和身份安全服务提供商之一，专注于提供符合 ICP-Brasil 标准的数字证书、云签名及企业加密解决方案。"
+      },
+      "countries": [
+        "BR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 45,
+      "tag": "AATL",
+      "originCountry": "巴西",
+      "region": "Europe",
+      "website": "https://www.soluti.com.br/",
+      "learnMoreUrl": "https://www.soluti.com.br/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "safeweb",
+      "name": "Safeweb",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Safeweb 是一家拥有超 20 年历史的巴西头部信息安全企业，作为受 ICP-Brasil 认可的权威商业 CA，专门为企业和个人提供数字证书、云签名及税务合规解决方案。",
+        "zh": "Safeweb 是一家拥有超 20 年历史的巴西头部信息安全企业，作为受 ICP-Brasil 认可的权威商业 CA，专门为企业和个人提供数字证书、云签名及税务合规解决方案。"
+      },
+      "countries": [
+        "BR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 46,
+      "tag": "CA标签",
+      "originCountry": "巴西",
+      "region": "Europe",
+      "website": "https://www.safeweb.com.br/",
+      "learnMoreUrl": "https://www.safeweb.com.br/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "valid-certificadora",
+      "name": "valid certificadora",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Valid Certificadora 是巴西身份识别巨头 Valid 集团旗下的全资子公司，为巴西领先的受 ICP-Brasil 认可的数字认证和安全身份解决方案提供商。",
+        "zh": "Valid Certificadora 是巴西身份识别巨头 Valid 集团旗下的全资子公司，为巴西领先的受 ICP-Brasil 认可的数字认证和安全身份解决方案提供商。"
+      },
+      "countries": [
+        "BR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 47,
+      "tag": "AATL",
+      "originCountry": "巴西",
+      "region": "Europe",
+      "website": "https://validcertificadora.com.br/",
+      "learnMoreUrl": "https://validcertificadora.com.br/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "uae-pass",
+      "name": "UAE Pass",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "阿联酋国家级数字身份与电子签名平台，提供统一认证和合法电子签署能力",
+        "zh": "阿联酋国家级数字身份与电子签名平台，提供统一认证和合法电子签署能力"
+      },
+      "countries": [
+        "AE"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 48,
+      "tag": "政府身份ID",
+      "originCountry": "阿联酋",
+      "region": "Europe",
+      "website": "https://www.uaepass.ae",
+      "learnMoreUrl": "https://www.uaepass.ae",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "epillars",
+      "name": "Epillars",
+      "category": "ESIGNATURE",
+      "providerType": "CA",
+      "cardSummary": {
+        "en": "中东地区IT集成商，提供数字签名与证书解决方案并代理主流CA服务",
+        "zh": "中东地区IT集成商，提供数字签名与证书解决方案并代理主流CA服务"
+      },
+      "countries": [
+        "AE"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 49,
+      "tag": "",
+      "originCountry": "阿联酋",
+      "region": "Europe",
+      "website": "https://www.epillars.com",
+      "learnMoreUrl": "https://www.epillars.com",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "servicio-de-administración-tributaria",
+      "name": "Servicio de Administración Tributaria",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "墨西哥国家税务机关，提供具有法律效力的电子签名（e.firma）证书",
+        "zh": "墨西哥国家税务机关，提供具有法律效力的电子签名（e.firma）证书"
+      },
+      "countries": [
+        "MX"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 50,
+      "tag": "政府身份ID",
+      "originCountry": "墨西哥",
+      "region": "Europe",
+      "website": "https://www.sat.gob.mx",
+      "learnMoreUrl": "https://www.sat.gob.mx",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "eid-easy",
+      "name": "EID Easy",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "提供统一API接入全球CA与QTSP的电子签名与数字身份聚合平台",
+        "zh": "提供统一API接入全球CA与QTSP的电子签名与数字身份聚合平台"
+      },
+      "countries": [
+        "EE"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 51,
+      "tag": "CSC",
+      "originCountry": "爱沙尼亚",
+      "region": "Europe",
+      "website": "https://www.eideasy.com/faq",
+      "learnMoreUrl": "https://www.eideasy.com/faq",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "vinotek",
+      "name": "Vinotek",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "Vinotek 是一套印尼电子签名认证（PSrE）平台，集成 Komdigi 认证电子签名、印尼国家邮政局官方电子印章、电子证书及数字签章等多项服务，在单一安全且具备法律效力的系统内实现数字文件的管理与认证。",
+        "zh": "Vinotek 是一套印尼电子签名认证（PSrE）平台，集成 Komdigi 认证电子签名、印尼国家邮政局官方电子印章、电子证书及数字签章等多项服务，在单一安全且具备法律效力的系统内实现数字文件的管理与认证。"
+      },
+      "countries": [
+        "ID",
+        "IN"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 52,
+      "tag": "政府身份ID",
+      "originCountry": "印度尼西亚",
+      "region": "Asia Pacific",
+      "website": "https://vinotek.id/",
+      "learnMoreUrl": "https://vinotek.id/",
+      "hashSigning": "未查找到",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "fpt劳动合同",
+      "name": "FPT劳动合同",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "FPT CA 是由越南信息通信部（MIC）独家许可的公共数字认证服务商，为企业及个人提供符合越南国家最高安全标准的数字签名、电子发票与合规身份认证体系。",
+        "zh": "FPT CA 是由越南信息通信部（MIC）独家许可的公共数字认证服务商，为企业及个人提供符合越南国家最高安全标准的数字签名、电子发票与合规身份认证体系。"
+      },
+      "countries": [
+        "VN"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 53,
+      "tag": "政府身份ID",
+      "originCountry": "越南",
+      "region": "Asia Pacific",
+      "website": "http://fpt-ca.vn/",
+      "learnMoreUrl": "http://fpt-ca.vn/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "vnpt",
+      "name": "VNPT",
+      "category": "EID AUTHENTICATION",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "VNPT CA 隶属于越南邮政通信集团，是该国领先的国家级认证机构，通过其 VNPT SmartCA 方案提供符合越南本土法规与欧洲 eIDAS 标准、无需实体硬件的云端身份验证与电子签名服务。",
+        "zh": "VNPT CA 隶属于越南邮政通信集团，是该国领先的国家级认证机构，通过其 VNPT SmartCA 方案提供符合越南本土法规与欧洲 eIDAS 标准、无需实体硬件的云端身份验证与电子签名服务。"
+      },
+      "countries": [
+        "VN"
+      ],
+      "signatureLevels": [
+        "QES",
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 54,
+      "tag": "政府身份ID",
+      "originCountry": "越南",
+      "region": "Asia Pacific",
+      "website": "https://smartca.vnpt.vn/",
+      "learnMoreUrl": "https://smartca.vnpt.vn/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "aba",
+      "name": "ABA",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "由多米尼加共和国银行协会 (ABA) 运营，为金融及企业界提供合法合规电子签名与数字认证的国家级信任平台。。",
+        "zh": "由多米尼加共和国银行协会 (ABA) 运营，为金融及企业界提供合法合规电子签名与数字认证的国家级信任平台。。"
+      },
+      "countries": [
+        "DO"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 55,
+      "tag": "EUTL",
+      "originCountry": "多米尼加共和国",
+      "region": "Europe",
+      "website": "https://abadigital.do/",
+      "learnMoreUrl": "https://abadigital.do/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "borica-b-trust",
+      "name": "Borica B-trust",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "支持云端QES与移动端授权签名，保加利亚领先的合格数字信任服务提供商。",
+        "zh": "支持云端QES与移动端授权签名，保加利亚领先的合格数字信任服务提供商。"
+      },
+      "countries": [
+        "BG"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 56,
+      "tag": "AATL",
+      "originCountry": "保加利亚",
+      "region": "Europe",
+      "website": "https://www.b-trust.bg/",
+      "learnMoreUrl": "https://www.b-trust.bg/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "cert-me",
+      "name": "cert ME",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "由certSIGN提供的罗马尼亚合格电子签名服务，基于区块链身份验证的移动端QES签发",
+        "zh": "由certSIGN提供的罗马尼亚合格电子签名服务，基于区块链身份验证的移动端QES签发"
+      },
+      "countries": [
+        "RO"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 57,
+      "tag": "AATL",
+      "originCountry": "罗马尼亚",
+      "region": "Europe",
+      "website": "https://certme.ro/",
+      "learnMoreUrl": "https://certme.ro/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "czech-id-card",
+      "name": "Czech ID Card",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "捷克共和国官方发行的带有合格电子签名的国民身份证，内嵌数字证书芯片，支持最高安全级别的政务与商务签名",
+        "zh": "捷克共和国官方发行的带有合格电子签名的国民身份证，内嵌数字证书芯片，支持最高安全级别的政务与商务签名"
+      },
+      "countries": [
+        "CZ"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 58,
+      "tag": "EUTL",
+      "originCountry": "捷克共和国",
+      "region": "Europe",
+      "website": "https://info.eidentita.cz/",
+      "learnMoreUrl": "https://info.eidentita.cz/",
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "diia",
+      "name": "DIIA",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "通过人脸识别直接生成合规的数字签名并管理所有电子证照，乌克兰国家级政务应用，被称为“智能手机里的国家”。",
+        "zh": "通过人脸识别直接生成合规的数字签名并管理所有电子证照，乌克兰国家级政务应用，被称为“智能手机里的国家”。"
+      },
+      "countries": [
+        "UA"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 59,
+      "tag": "/",
+      "originCountry": "乌克兰",
+      "region": "Europe",
+      "website": "https://diia.gov.ua/",
+      "learnMoreUrl": "https://diia.gov.ua/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "ecert-chile",
+      "name": "ECert Chile",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "智利商会支持下的领先电子签名与数字认证提供商。与智利国家税务局(SII)深度集成，专攻电子发票与税务签名。",
+        "zh": "智利商会支持下的领先电子签名与数字认证提供商。与智利国家税务局(SII)深度集成，专攻电子发票与税务签名。"
+      },
+      "countries": [
+        "CL"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 60,
+      "tag": "AATL",
+      "originCountry": "智利",
+      "region": "Europe",
+      "website": "https://www.ecert.cl/",
+      "learnMoreUrl": "https://www.ecert.cl/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "emudhra",
+      "name": "EMudhra",
+      "category": "ESIGNATURE",
+      "providerType": "AATL聚合CA",
+      "cardSummary": {
+        "en": "全球化的顶级根证书颁发机构，提供全栈式身份与签名解决方案。，极强的大规模扩展性，支持全球多地区合规无纸化工作流",
+        "zh": "全球化的顶级根证书颁发机构，提供全栈式身份与签名解决方案。，极强的大规模扩展性，支持全球多地区合规无纸化工作流"
+      },
+      "countries": [
+        "IN"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 61,
+      "tag": "AATL",
+      "originCountry": "印度",
+      "region": "Asia Pacific",
+      "website": "https://www.emudhra.com/",
+      "learnMoreUrl": "https://www.emudhra.com/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "gse-gestión-de-seguridad-electrónica",
+      "name": "GSE Gestión de Seguridad Electrónica",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "哥伦比亚合规的数字签名与电子安全管理机构，专注哥伦比亚电子发票(DIAN合规)及生物识别认证",
+        "zh": "哥伦比亚合规的数字签名与电子安全管理机构，专注哥伦比亚电子发票(DIAN合规)及生物识别认证"
+      },
+      "countries": [
+        "CO"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 62,
+      "tag": "AATL",
+      "originCountry": "哥伦比亚",
+      "region": "Europe",
+      "website": "https://www.gse.com.co/",
+      "learnMoreUrl": "https://www.gse.com.co/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "harica",
+      "name": "Harica",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "始于希腊学术界、现服务全球的合格信任服务提供商，源自欧洲学术网，支持欧盟全域远程身份验证与代码签名",
+        "zh": "始于希腊学术界、现服务全球的合格信任服务提供商，源自欧洲学术网，支持欧盟全域远程身份验证与代码签名"
+      },
+      "countries": [
+        "GR"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 63,
+      "tag": "AATL",
+      "originCountry": "希腊",
+      "region": "Europe",
+      "website": "https://www.harica.gr/",
+      "learnMoreUrl": "https://www.harica.gr/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "lt-id",
+      "name": "LT ID",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "立陶宛官方认可的安全认证与合格电子签名数字身份方案，基于SIM卡或指定App的高安全性国家移动数字身份",
+        "zh": "立陶宛官方认可的安全认证与合格电子签名数字身份方案，基于SIM卡或指定App的高安全性国家移动数字身份"
+      },
+      "countries": [
+        "LT"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 64,
+      "tag": "EUTL",
+      "originCountry": "立陶宛",
+      "region": "Europe",
+      "website": "https://www.elektroninisparasas.lt/",
+      "learnMoreUrl": "https://www.elektroninisparasas.lt/",
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "msc-trustgate",
+      "name": "MSC TrustGate",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "马来西亚持牌认证机构，支持本地化PKI及高安全加密设备集成，马来西亚领先的电子认证与数字信任服务提供商。",
+        "zh": "马来西亚持牌认证机构，支持本地化PKI及高安全加密设备集成，马来西亚领先的电子认证与数字信任服务提供商。"
+      },
+      "countries": [
+        "MY"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 65,
+      "tag": "AATL",
+      "originCountry": "马来西亚",
+      "region": "Asia Pacific",
+      "website": "msctrustgate.com",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "oneid",
+      "name": "OneID",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "英国领先的基于银行数据直连的数字身份验证网关，银行级身份验证网络，用户无需创建新账户或上传证件即可完成强身份校验。",
+        "zh": "英国领先的基于银行数据直连的数字身份验证网关，银行级身份验证网络，用户无需创建新账户或上传证件即可完成强身份校验。"
+      },
+      "countries": [
+        "GB"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 66,
+      "tag": "/",
+      "originCountry": "英国",
+      "region": "Europe",
+      "website": "oneid.uk",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "/"
+    },
+    {
+      "slug": "psc-world-wallet",
+      "name": "PSC World Wallet",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "深度集成墨西哥高级电子签名(LFEA)法规及NOM-151数据留存合规要求，墨西哥本土合规的数字身份钱包与高级电子签名服务商。",
+        "zh": "深度集成墨西哥高级电子签名(LFEA)法规及NOM-151数据留存合规要求，墨西哥本土合规的数字身份钱包与高级电子签名服务商。"
+      },
+      "countries": [
+        "MX"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 67,
+      "tag": "CSC",
+      "originCountry": "墨西哥",
+      "region": "Latin America",
+      "website": "pscworld.com",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "swisscom",
+      "name": "Swisscom",
+      "category": "ESIGNATURE",
+      "providerType": "QTSP",
+      "cardSummary": {
+        "en": "瑞士电信巨头，欧洲领先的合法合规云端电子签名信任服务商。全功能签名服务(All-in Signing Service)，支持海量云端并发QES",
+        "zh": "瑞士电信巨头，欧洲领先的合法合规云端电子签名信任服务商。全功能签名服务(All-in Signing Service)，支持海量云端并发QES"
+      },
+      "countries": [
+        "CH"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 68,
+      "tag": "CSC",
+      "originCountry": "瑞士",
+      "region": "Europe",
+      "website": "trustservices.swisscom.com",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "swissid",
+      "name": "SwissID",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "瑞士官方认可的通用安全数字身份与合格电子签名应用，瑞士国家标准级数字身份，底层由合格信任服务商SwissSign提供证书支撑",
+        "zh": "瑞士官方认可的通用安全数字身份与合格电子签名应用，瑞士国家标准级数字身份，底层由合格信任服务商SwissSign提供证书支撑"
+      },
+      "countries": [
+        "CH"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 69,
+      "tag": "AATL",
+      "originCountry": "瑞士",
+      "region": "Europe",
+      "website": "swissid.ch",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "trustasia",
+      "name": "TrustAsia",
+      "category": "ESIGNATURE",
+      "providerType": "纯商业化CA",
+      "cardSummary": {
+        "en": "中国领先的数字信任、商业密码应用及文档签名解决方案提供商。提供VSign云端签名平台及微软WHQL驱动代码签名全栈服务",
+        "zh": "中国领先的数字信任、商业密码应用及文档签名解决方案提供商。提供VSign云端签名平台及微软WHQL驱动代码签名全栈服务"
+      },
+      "countries": [
+        "CN"
+      ],
+      "signatureLevels": [
+        "AES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 70,
+      "tag": "AATL",
+      "originCountry": "中国",
+      "region": "Asia Pacific",
+      "website": "trustasia.com",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "verifai",
+      "name": "Verifai",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "支持全球海量身份证件的NFC芯片校验与AI活体防伪检测",
+        "zh": "支持全球海量身份证件的NFC芯片校验与AI活体防伪检测"
+      },
+      "countries": [
+        "NL"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 71,
+      "tag": "IDV/eKYC",
+      "originCountry": "荷兰",
+      "region": "Europe",
+      "website": "verifai.com",
+      "learnMoreUrl": null,
+      "hashSigning": "不支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "veriff",
+      "name": "Veriff",
+      "category": "EID AUTHENTICATION",
+      "providerType": "IdP",
+      "cardSummary": {
+        "en": "极高转化率的视频流活体检测(Video-first)与跨国界数字反欺诈能力",
+        "zh": "极高转化率的视频流活体检测(Video-first)与跨国界数字反欺诈能力"
+      },
+      "countries": [
+        "EE"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 72,
+      "tag": "IDV/eKYC",
+      "originCountry": "爱沙尼亚",
+      "region": "Europe",
+      "website": "veriff.com",
+      "learnMoreUrl": null,
+      "hashSigning": "不支持",
+      "enterpriseCert": "不支持"
+    },
+    {
+      "slug": "vietnam-tokens",
+      "name": "Vietnam Tokens",
+      "category": "ESIGNATURE",
+      "providerType": "地区CA",
+      "cardSummary": {
+        "en": "强制依赖硬件加密介质(USB Token)实现越南税务、海关及政务平台的强制合规",
+        "zh": "强制依赖硬件加密介质(USB Token)实现越南税务、海关及政务平台的强制合规"
+      },
+      "countries": [
+        "VN"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 73,
+      "tag": "/",
+      "originCountry": "越南",
+      "region": "Asia Pacific",
+      "website": "smartca.vnpt.vn",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    },
+    {
+      "slug": "thaica",
+      "name": "ThaiCA",
+      "category": "ESIGNATURE",
+      "providerType": "国家CA",
+      "cardSummary": {
+        "en": "支撑泰国国家数字身份(NDID)及电子政务(如ThaID)的底层公钥基础设施库",
+        "zh": "支撑泰国国家数字身份(NDID)及电子政务(如ThaID)的底层公钥基础设施库"
+      },
+      "countries": [
+        "TH"
+      ],
+      "signatureLevels": [
+        "QES"
+      ],
+      "status": "Available",
+      "featured": false,
+      "sortOrder": 74,
+      "tag": "AATL",
+      "originCountry": "泰国",
+      "region": "Asia Pacific",
+      "website": "etda.or.th",
+      "learnMoreUrl": null,
+      "hashSigning": "支持",
+      "enterpriseCert": "支持"
+    }
+  ],
+  "meta": {
+    "generatedAt": "2026-07-03",
+    "source": "CA总表可公开.xlsx",
+    "skipped": [
+      "政府身份ID",
+      "政府身份ID"
+    ],
+    "coverageCountryCount": 193,
+    "coverageMergedAt": "2026-07-03"
+  }
+}
