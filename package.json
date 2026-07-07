@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:pages": "vite build --base=/ca-hub/ && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "build:pages": "npx vite build --base=/ca-hub/ && cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "preview": "vite preview"
   },
   "dependencies": {
