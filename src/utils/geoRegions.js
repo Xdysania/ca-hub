@@ -201,61 +201,61 @@ export const NAME_TO_ISO = {
   eSwatini: 'SZ'
 }
 
-/** ISO2 → 大洲/区域 ID */
+/** ISO2 → 地图展示区域 ID（8 区，对齐 Ramp Browse regions） */
+export const REGION_IDS = [
+  'africa',
+  'asia',
+  'caribbean-central-america',
+  'europe',
+  'middle-east',
+  'north-america',
+  'south-america',
+  'oceania'
+]
+
 export const ISO_TO_REGION = {
   US: 'north-america', CA: 'north-america', MX: 'north-america', GL: 'north-america',
-  GT: 'latin-america', BZ: 'latin-america', SV: 'latin-america', HN: 'latin-america',
-  NI: 'latin-america', CR: 'latin-america', PA: 'latin-america', CU: 'latin-america',
-  DO: 'latin-america', HT: 'latin-america', JM: 'latin-america', TT: 'latin-america',
-  BB: 'latin-america', AG: 'latin-america', DM: 'latin-america', GD: 'latin-america',
-  KN: 'latin-america', LC: 'latin-america', VC: 'latin-america', BS: 'latin-america',
-  BR: 'latin-america', AR: 'latin-america', CL: 'latin-america', CO: 'latin-america',
-  PE: 'latin-america', VE: 'latin-america', EC: 'latin-america', BO: 'latin-america',
-  PY: 'latin-america', UY: 'latin-america', GY: 'latin-america', SR: 'latin-america',
+  GT: 'caribbean-central-america', BZ: 'caribbean-central-america', SV: 'caribbean-central-america',
+  HN: 'caribbean-central-america', NI: 'caribbean-central-america', CR: 'caribbean-central-america',
+  PA: 'caribbean-central-america', CU: 'caribbean-central-america', DO: 'caribbean-central-america',
+  HT: 'caribbean-central-america', JM: 'caribbean-central-america', TT: 'caribbean-central-america',
+  BB: 'caribbean-central-america', AG: 'caribbean-central-america', DM: 'caribbean-central-america',
+  GD: 'caribbean-central-america', KN: 'caribbean-central-america', LC: 'caribbean-central-america',
+  VC: 'caribbean-central-america', BS: 'caribbean-central-america',
+  BR: 'south-america', AR: 'south-america', CL: 'south-america', CO: 'south-america',
+  PE: 'south-america', VE: 'south-america', EC: 'south-america', BO: 'south-america',
+  PY: 'south-america', UY: 'south-america', GY: 'south-america', SR: 'south-america',
   GB: 'europe', IE: 'europe', FR: 'europe', DE: 'europe', ES: 'europe', PT: 'europe',
   IT: 'europe', NL: 'europe', BE: 'europe', LU: 'europe', AT: 'europe', CH: 'europe',
   SE: 'europe', NO: 'europe', DK: 'europe', FI: 'europe', IS: 'europe', PL: 'europe',
   CZ: 'europe', SK: 'europe', HU: 'europe', RO: 'europe', BG: 'europe', GR: 'europe',
   HR: 'europe', SI: 'europe', RS: 'europe', BA: 'europe', ME: 'europe', MK: 'europe',
-  AL: 'europe', EE: 'europe', LV: 'europe', LT: 'europe', UA: 'europe', BY: 'europe',
-  MD: 'europe', XK: 'europe', CY: 'europe', MT: 'europe', AD: 'europe', MC: 'europe',
-  SM: 'europe', RU: 'europe',
-  CN: 'asia-pacific', JP: 'asia-pacific', KR: 'asia-pacific', TW: 'asia-pacific',
-  HK: 'asia-pacific', IN: 'asia-pacific', PK: 'asia-pacific', BD: 'asia-pacific',
-  TH: 'asia-pacific', VN: 'asia-pacific', MY: 'asia-pacific', SG: 'asia-pacific',
-  ID: 'asia-pacific', PH: 'asia-pacific', AU: 'asia-pacific', NZ: 'asia-pacific',
-  KZ: 'asia-pacific', UZ: 'asia-pacific', MN: 'asia-pacific', NP: 'asia-pacific',
-  LK: 'asia-pacific', MM: 'asia-pacific', KH: 'asia-pacific', LA: 'asia-pacific',
-  FJ: 'asia-pacific', PG: 'asia-pacific', TL: 'asia-pacific', BN: 'asia-pacific',
-  AF: 'asia-pacific', BT: 'asia-pacific', MV: 'asia-pacific', KP: 'asia-pacific',
-  KG: 'asia-pacific', TJ: 'asia-pacific', TM: 'asia-pacific', AZ: 'asia-pacific',
-  AM: 'asia-pacific', GE: 'asia-pacific', CK: 'asia-pacific', KI: 'asia-pacific',
-  MH: 'asia-pacific', FM: 'asia-pacific', PW: 'asia-pacific', NR: 'asia-pacific',
-  TV: 'asia-pacific', WS: 'asia-pacific', TO: 'asia-pacific', SB: 'asia-pacific',
-  VU: 'asia-pacific',
-  AE: 'middle-east-africa', SA: 'middle-east-africa', IL: 'middle-east-africa',
-  TR: 'middle-east-africa', IQ: 'middle-east-africa', IR: 'middle-east-africa',
-  JO: 'middle-east-africa', LB: 'middle-east-africa', KW: 'middle-east-africa',
-  OM: 'middle-east-africa', QA: 'middle-east-africa', BH: 'middle-east-africa',
-  YE: 'middle-east-africa', PS: 'middle-east-africa', EG: 'middle-east-africa',
-  ZA: 'middle-east-africa', NG: 'middle-east-africa', KE: 'middle-east-africa',
-  GH: 'middle-east-africa', TZ: 'middle-east-africa', ET: 'middle-east-africa',
-  MA: 'middle-east-africa', DZ: 'middle-east-africa', TN: 'middle-east-africa',
-  AO: 'middle-east-africa', MZ: 'middle-east-africa', ZM: 'middle-east-africa',
-  ZW: 'middle-east-africa', UG: 'middle-east-africa', SN: 'middle-east-africa',
-  CI: 'middle-east-africa', CM: 'middle-east-africa', SD: 'middle-east-africa',
-  SS: 'middle-east-africa', RW: 'middle-east-africa', BW: 'middle-east-africa',
-  NA: 'middle-east-africa', MG: 'middle-east-africa', ML: 'middle-east-africa',
-  BF: 'middle-east-africa', NE: 'middle-east-africa', TD: 'middle-east-africa',
-  LY: 'middle-east-africa', SO: 'middle-east-africa', CD: 'middle-east-africa',
-  CG: 'middle-east-africa', GA: 'middle-east-africa', GN: 'middle-east-africa',
-  SL: 'middle-east-africa', LR: 'middle-east-africa', BJ: 'middle-east-africa',
-  BI: 'middle-east-africa', CF: 'middle-east-africa', DJ: 'middle-east-africa',
-  ER: 'middle-east-africa', GM: 'middle-east-africa', GW: 'middle-east-africa',
-  CV: 'middle-east-africa', KM: 'middle-east-africa', ST: 'middle-east-africa',
-  SC: 'middle-east-africa', MU: 'middle-east-africa', MR: 'middle-east-africa',
-  MW: 'middle-east-africa', LS: 'middle-east-africa', SZ: 'middle-east-africa',
-  SY: 'middle-east-africa', TG: 'middle-east-africa', GQ: 'middle-east-africa'
+  AL: 'europe', EE: 'europe', LV: 'europe', LT: 'europe', XK: 'europe', CY: 'europe',
+  MT: 'europe', AD: 'europe', MC: 'europe', SM: 'europe',
+  /** 波兰–罗马尼亚以东：不计入欧洲批量高亮（对齐 Ramp 全球视图） */
+  RU: 'asia', BY: 'asia', UA: 'asia', MD: 'asia',
+  CN: 'asia', JP: 'asia', KR: 'asia', TW: 'asia', HK: 'asia', MO: 'asia',
+  IN: 'asia', PK: 'asia', BD: 'asia', TH: 'asia', VN: 'asia', MY: 'asia', SG: 'asia',
+  ID: 'asia', PH: 'asia', KZ: 'asia', UZ: 'asia', MN: 'asia', NP: 'asia', LK: 'asia',
+  MM: 'asia', KH: 'asia', LA: 'asia', TL: 'asia', BN: 'asia', AF: 'asia', BT: 'asia',
+  MV: 'asia', KP: 'asia', KG: 'asia', TJ: 'asia', TM: 'asia', AZ: 'asia', AM: 'asia',
+  GE: 'asia',
+  AU: 'oceania', NZ: 'oceania', FJ: 'oceania', PG: 'oceania', CK: 'oceania', KI: 'oceania',
+  MH: 'oceania', FM: 'oceania', PW: 'oceania', NR: 'oceania', TV: 'oceania', WS: 'oceania',
+  TO: 'oceania', SB: 'oceania', VU: 'oceania',
+  AE: 'middle-east', SA: 'middle-east', IL: 'middle-east', TR: 'middle-east',
+  IQ: 'middle-east', IR: 'middle-east', JO: 'middle-east', LB: 'middle-east',
+  KW: 'middle-east', OM: 'middle-east', QA: 'middle-east', BH: 'middle-east',
+  YE: 'middle-east', PS: 'middle-east', SY: 'middle-east',
+  EG: 'africa', ZA: 'africa', NG: 'africa', KE: 'africa', GH: 'africa', TZ: 'africa',
+  ET: 'africa', MA: 'africa', DZ: 'africa', TN: 'africa', AO: 'africa', MZ: 'africa',
+  ZM: 'africa', ZW: 'africa', UG: 'africa', SN: 'africa', CI: 'africa', CM: 'africa',
+  SD: 'africa', SS: 'africa', RW: 'africa', BW: 'africa', NA: 'africa', MG: 'africa',
+  ML: 'africa', BF: 'africa', NE: 'africa', TD: 'africa', LY: 'africa', SO: 'africa',
+  CD: 'africa', CG: 'africa', GA: 'africa', GN: 'africa', SL: 'africa', LR: 'africa',
+  BJ: 'africa', BI: 'africa', CF: 'africa', DJ: 'africa', ER: 'africa', GM: 'africa',
+  GW: 'africa', CV: 'africa', KM: 'africa', ST: 'africa', SC: 'africa', MU: 'africa',
+  MR: 'africa', MW: 'africa', LS: 'africa', SZ: 'africa', TG: 'africa', GQ: 'africa'
 }
 
 /** Natural Earth 50m：中国大陆 numeric id */
@@ -319,6 +319,15 @@ export function isoToRegionId(iso) {
 }
 
 /**
+ * 地图交互用区域 ID（批量悬浮高亮、区域面板归属）
+ * @param {string} iso
+ * @returns {string|null}
+ */
+export function isoToMapRegionId(iso) {
+  return isoToRegionId(iso)
+}
+
+/**
  * 按质心经纬度判定地图展示区域（地理分区）
  * @param {number} lng
  * @param {number} lat
@@ -327,31 +336,33 @@ export function isoToRegionId(iso) {
 export function regionIdFromCoordinates(lng, lat) {
   if (lat < -60) return null
 
-  if (lng >= -170 && lng <= -30) {
-    return lat >= 15 ? 'north-america' : 'latin-america'
+  if (
+    (lng >= 110 && lat <= -8) ||
+    (lng >= 140 && lat < 12 && lat >= -50) ||
+    (lng >= 165 && lat < 5)
+  ) {
+    return 'oceania'
   }
 
-  if (lat >= 50 && lng >= -75 && lng <= -10) {
+  if (lng >= -170 && lng <= -30) {
+    if (lat >= 23) return 'north-america'
+    if (lat >= 7 && lng >= -118 && lng <= -77) return 'caribbean-central-america'
+    if (lat >= 10 && lat < 23 && lng >= -95) return 'caribbean-central-america'
+    if (lat >= 5 && lat < 25 && lng >= -85) return 'caribbean-central-america'
+    if (lat < 15) return 'south-america'
     return 'north-america'
   }
 
-  if (lat >= 35 && lng >= -25 && lng <= 60) {
-    return 'europe'
-  }
+  if (lat >= 36 && lng >= -12 && lng <= 32) return 'europe'
+  if (lat >= 35 && lng >= -25 && lng <= 28) return 'europe'
 
-  if (lat >= -35 && lat < 38 && lng >= -20 && lng <= 55) {
-    return 'middle-east-africa'
-  }
+  if (lat >= 12 && lat <= 42 && lng >= 26 && lng <= 63) return 'middle-east'
 
-  if (lng > 55 || lat < 10 && lng > 95 || lat >= -50 && lat < 10 && lng >= 110) {
-    return 'asia-pacific'
-  }
+  if (lat >= -35 && lat < 38 && lng >= -20 && lng <= 55) return 'africa'
 
-  if (lat >= 10 && lng > 40 && lng <= 180) {
-    return 'asia-pacific'
-  }
+  if (lng > 25 || lat > 5) return 'asia'
 
-  return 'middle-east-africa'
+  return 'africa'
 }
 
 /**
@@ -366,10 +377,12 @@ export function resolvePolygonDisplayRegion(primaryRegionId, lng, lat, isPrimary
   if (!primaryRegionId || isPrimaryPart) return primaryRegionId
 
   const geoRegion = regionIdFromCoordinates(lng, lat)
-  if (
-    primaryRegionId === 'europe' &&
-    (geoRegion === 'latin-america' || geoRegion === 'north-america')
-  ) {
+  const europeOverseasTargets = new Set([
+    'caribbean-central-america',
+    'south-america',
+    'north-america'
+  ])
+  if (primaryRegionId === 'europe' && europeOverseasTargets.has(geoRegion)) {
     return geoRegion
   }
 

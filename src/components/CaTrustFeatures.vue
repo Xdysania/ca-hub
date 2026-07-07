@@ -108,7 +108,7 @@ const features = [
 .ca-trust-features__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 48px;
 }
 
 .ca-trust-card {
@@ -156,7 +156,7 @@ const features = [
 @media (max-width: 700px) {
   .ca-trust-features__grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
   }
 
   .ca-trust-features__title {

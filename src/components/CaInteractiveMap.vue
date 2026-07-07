@@ -116,16 +116,43 @@
 
         <!-- 浮层控件：不占布局空间 -->
         <div class="ca-map__controls">
-          <button
-            class="ca-map__region-btn"
-            :aria-expanded="panelMode === 'regions'"
-            @click.stop="toggleRegionPanel"
+          <div
+            class="ca-map__region-dropdown"
+            :class="{ 'ca-map__region-dropdown--open': panelMode === 'regions' }"
           >
-            <span>{{ regionButtonLabel }}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </button>
+            <button
+              class="ca-map__region-btn"
+              :aria-expanded="panelMode === 'regions'"
+              @click.stop="toggleRegionPanel"
+            >
+              <span>{{ regionButtonLabel }}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+
+            <div class="ca-map__region-menu-wrap" :aria-hidden="panelMode !== 'regions'">
+              <div class="ca-map__region-menu">
+                <ul class="ca-map__panel-list ca-map__panel-list--regions">
+                  <li
+                    v-for="(region, index) in availableRegions"
+                    :key="region.id"
+                    class="ca-map__panel-row ca-map__panel-row--region"
+                    :class="{ 'ca-map__panel-row--region-active': hoveredRegionId === region.id }"
+                    :style="{ '--item-index': index }"
+                    @click.stop="selectRegion(region.id)"
+                    @mouseenter="onPanelRegionHover(region.id)"
+                    @mouseleave="onPanelRegionLeave"
+                  >
+                    <span class="ca-map__panel-row-title">{{ regionLabel(region.id) }}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" aria-hidden="true">
+                      <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           <button
             class="ca-map__expand-btn"
@@ -141,32 +168,15 @@
           </button>
         </div>
 
-        <!-- 左侧浮层 -->
+        <!-- 左侧浮层：国家 / Provider 列表 -->
         <transition name="panel-slide">
-          <div v-if="panelMode" class="ca-map__panel" @click.stop>
-            <!-- 第一层：大洲列表 -->
-            <template v-if="panelMode === 'regions'">
-              <div class="ca-map__panel-head">{{ ct('selectRegion') }}</div>
-              <ul class="ca-map__panel-list">
-                <li
-                  v-for="region in availableRegions"
-                  :key="region.id"
-                  class="ca-map__panel-row ca-map__panel-row--region"
-                  @click.stop="selectRegion(region.id)"
-                >
-                  <span class="ca-map__panel-row-title">{{ regionLabel(region.id) }}</span>
-                  <span class="ca-map__panel-row-meta">
-                    {{ region.countryCount }} {{ ct('countriesLabel') }}
-                  </span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6"/>
-                  </svg>
-                </li>
-              </ul>
-            </template>
-
+          <div
+            v-if="panelMode === 'countries' || panelMode === 'providers'"
+            class="ca-map__panel"
+            @click.stop
+          >
             <!-- 第二层：国家列表 -->
-            <template v-else-if="panelMode === 'countries'">
+            <template v-if="panelMode === 'countries'">
               <button class="ca-map__panel-back" @click="backToWorld">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="15 18 9 12 15 6"/>
@@ -236,11 +246,13 @@
         </transition>
 
         <!-- 点击遮罩关闭面板 -->
-        <div
-          v-if="panelMode === 'regions'"
-          class="ca-map__backdrop"
-          @click.stop="panelMode = null"
-        />
+        <transition name="backdrop-fade">
+          <div
+            v-if="panelMode === 'regions'"
+            class="ca-map__backdrop"
+            @click.stop="closeRegionPanel"
+          />
+        </transition>
 
         </div>
       </div>
@@ -269,12 +281,14 @@ import * as topojson from 'topojson-client'
 import {
   mapNameToIso,
   isoToRegionId,
+  isoToMapRegionId,
   isChinaUnifiedTerritory,
   shouldDrawBorderBetween,
   DIAOYU_ISLAND_COORDS,
   extractPolygonGeometries,
   resolvePolygonDisplayRegion,
-  regionIdFromCoordinates
+  regionIdFromCoordinates,
+  REGION_IDS
 } from '@/utils/geoRegions'
 import cnClaimedTerritoriesData from '/data/cn-claimed-territories.geojson?url'
 import worldAtlasData from '/data/world-map-50m.json?url'
@@ -315,18 +329,19 @@ const WORLD_MAP_ROTATE = [-10, 0]
  * @type {Record<string, [number, number]>}
  */
 const REGION_MAP_ROTATE = {
+  africa: [10, 0],
+  asia: [-95, 0],
+  'caribbean-central-america': [82, 0],
   europe: [-10, 0],
+  'middle-east': [45, 0],
   'north-america': [96, 0],
-  'latin-america': [74, 0],
-  'asia-pacific': [-145, 0],
-  'middle-east-africa': [20, 0]
+  'south-america': [58, 0],
+  oceania: [-160, 0]
 }
-/** 欧洲 fit 时忽略俄罗斯远东，避免视野被西伯利亚拉满导致日期线分裂 */
-const EUROPE_FIT_RUSSIA_MAX_LNG = 65
 /** 区域/国家视图更紧凑留白 */
 const REGION_MAP_PADDING = 20
 /** 左侧面板占位：left 28 + width 300 + 间距 16 */
-const PANEL_LEFT_INSET = 344
+const PANEL_LEFT_INSET = 300
 const MAP_ANIMATION_MS = 420
 /** 国界 mesh 描边（viewBox 坐标，叠加在国家填充之上） */
 const BORDER_MESH_WIDTH = 0.65
@@ -404,8 +419,6 @@ const tooltipPos = ref({ x: 0, y: 0 })
 const isFullscreen = ref(false)
 const mobileSearch = ref('')
 
-const REGION_IDS = ['europe', 'north-america', 'latin-america', 'asia-pacific', 'middle-east-africa']
-
 const content = {
   en: {
     title: 'Explore NotaSign\'s international coverage',
@@ -462,25 +475,34 @@ const content = {
 
 const regionLabels = {
   en: {
+    africa: 'Africa',
+    asia: 'Asia',
+    'caribbean-central-america': 'Caribbean and Central America',
     europe: 'Europe',
+    'middle-east': 'Middle East',
     'north-america': 'North America',
-    'latin-america': 'Latin America',
-    'asia-pacific': 'Asia Pacific',
-    'middle-east-africa': 'Middle East & Africa'
+    'south-america': 'South America',
+    oceania: 'Oceania'
   },
   zh: {
+    africa: '非洲',
+    asia: '亚洲',
+    'caribbean-central-america': '加勒比与中美洲',
     europe: '欧洲',
+    'middle-east': '中东',
     'north-america': '北美洲',
-    'latin-america': '拉丁美洲',
-    'asia-pacific': '亚太地区',
-    'middle-east-africa': '中东与非洲'
+    'south-america': '南美洲',
+    oceania: '大洋洲'
   },
   'zh-HK': {
+    africa: '非洲',
+    asia: '亞洲',
+    'caribbean-central-america': '加勒比與中美洲',
     europe: '歐洲',
+    'middle-east': '中東',
     'north-america': '北美洲',
-    'latin-america': '拉丁美洲',
-    'asia-pacific': '亞太地區',
-    'middle-east-africa': '中東與非洲'
+    'south-america': '南美洲',
+    oceania: '大洋洲'
   }
 }
 
@@ -511,14 +533,12 @@ function hasProviders(iso2) {
   return getProviderCount(iso2) > 0
 }
 
-/** 地图高亮：覆盖名单或已有 Provider */
+/** 地图高亮：仅已有 Provider 的国家参与底色与区域批量悬浮 */
 const mapSupportedIsos = computed(() => {
   const set = new Set()
   props.countries
-    .filter(c => c.enabled !== false)
-    .forEach(c => {
-      if (c.coverageSupported || hasProviders(c.iso2)) set.add(c.iso2)
-    })
+    .filter(c => c.enabled !== false && hasProviders(c.iso2))
+    .forEach(c => set.add(c.iso2))
   return set
 })
 
@@ -531,24 +551,29 @@ const providerCountryIsos = computed(() => {
   return set
 })
 
+/** @param {{ region?: string, iso2: string }} country */
+function resolveCountryRegionId(country) {
+  return isoToMapRegionId(country.iso2) ||
+    (country.region ? regionNameToId(country.region) : null)
+}
+
 /** 各洲下有数据的国家 */
 const availableRegions = computed(() =>
   REGION_IDS.map(id => {
-    const countries = props.countries.filter(c => {
-      const regionId = c.region ? regionNameToId(c.region) : isoToRegionId(c.iso2)
-      return regionId === id && mapSupportedIsos.value.has(c.iso2)
-    })
-    return { id, countryCount: countries.length }
-  }).filter(r => r.countryCount > 0)
+    const countryCount = props.countries.filter(c =>
+      resolveCountryRegionId(c) === id && mapSupportedIsos.value.has(c.iso2)
+    ).length
+    return { id, countryCount }
+  })
 )
 
 const regionCountries = computed(() => {
   if (!selectedRegionId.value) return []
   return props.countries
-    .filter(c => {
-      const regionId = c.region ? regionNameToId(c.region) : isoToRegionId(c.iso2)
-      return regionId === selectedRegionId.value && providerCountryIsos.value.has(c.iso2)
-    })
+    .filter(c =>
+      resolveCountryRegionId(c) === selectedRegionId.value &&
+      providerCountryIsos.value.has(c.iso2)
+    )
     .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0) || a.name.localeCompare(b.name))
 })
 
@@ -580,13 +605,17 @@ function regionNameToId(regionName) {
   const map = {
     Europe: 'europe',
     'North America': 'north-america',
-    'Latin America': 'latin-america',
-    'Asia Pacific': 'asia-pacific',
-    'Middle East': 'middle-east-africa',
-    Africa: 'middle-east-africa',
-    'Middle East & Africa': 'middle-east-africa'
+    'Latin America': null,
+    'South America': 'south-america',
+    'Caribbean and Central America': 'caribbean-central-america',
+    'Asia Pacific': null,
+    Asia: 'asia',
+    Oceania: 'oceania',
+    'Middle East': 'middle-east',
+    Africa: 'africa',
+    'Middle East & Africa': null
   }
-  return map[regionName] || null
+  return map[regionName] ?? null
 }
 
 /** @param {string} iso */
@@ -631,6 +660,7 @@ function isRegionAvailable(regionId) {
 /** @param {object} feature */
 function isRegionHovered(feature) {
   if (isGreenland(feature)) return false
+  if (!feature.iso || !isCountrySupported(feature.iso)) return false
   return viewLevel.value === 'world' &&
     feature.regionId &&
     feature.regionId === hoveredRegionId.value
@@ -681,20 +711,16 @@ function getCountryFill(feature) {
     const directHover = iso === hoveredIso.value || (isGreenland(feature) && hoveredGreenland.value)
     const regionBatchHover = isRegionHovered(feature)
 
-    if (supported && !isGreenland(feature)) {
-      return (regionBatchHover || directHover) ? MAP_COLORS.supportedHover : MAP_COLORS.supported
-    }
-
     if (isGreenland(feature)) {
       if (!hoveredGreenland.value) return MAP_COLORS.unsupported
-      return supported ? MAP_COLORS.supportedHover : MAP_COLORS.unsupportedHover
+      return supported ? MAP_COLORS.supportedHover : MAP_COLORS.unsupported
     }
 
-    if (regionBatchHover) {
-      return MAP_COLORS.unsupportedHover
+    if (!supported) {
+      return MAP_COLORS.unsupported
     }
 
-    return directHover ? MAP_COLORS.unsupportedHover : MAP_COLORS.unsupported
+    return (regionBatchHover || directHover) ? MAP_COLORS.supportedHover : MAP_COLORS.supported
   }
 
   if (viewLevel.value === 'region' || viewLevel.value === 'country') {
@@ -793,6 +819,21 @@ function onMapLeave() {
   hoveredFeature.value = null
 }
 
+/** @param {string} regionId */
+function onPanelRegionHover(regionId) {
+  if (viewLevel.value !== 'world') return
+  hoveredGreenland.value = false
+  hoveredRegionId.value = regionId
+  hoveredIso.value = null
+  hoveredFeature.value = null
+}
+
+function onPanelRegionLeave() {
+  if (viewLevel.value !== 'world') return
+  hoveredRegionId.value = null
+  hoveredFeature.value = null
+}
+
 /** @param {object} feature */
 function onCountryClick(feature) {
   if (viewLevel.value === 'world') {
@@ -810,11 +851,23 @@ function onCountryClick(feature) {
 
 function toggleRegionPanel() {
   if (viewLevel.value === 'world') {
-    panelMode.value = panelMode.value === 'regions' ? null : 'regions'
+    const opening = panelMode.value !== 'regions'
+    panelMode.value = opening ? 'regions' : null
+    if (!opening) {
+      hoveredRegionId.value = null
+      hoveredFeature.value = null
+    }
     return
   }
   panelMode.value = panelMode.value === 'countries' ? null : 'countries'
   refitCurrentView(true)
+}
+
+/** 关闭区域下拉并清除地图悬浮态 */
+function closeRegionPanel() {
+  panelMode.value = null
+  hoveredRegionId.value = null
+  hoveredFeature.value = null
 }
 
 /** @param {string} regionId */
@@ -893,7 +946,7 @@ function selectFromSearch() {
     c => c.name.toLowerCase().includes(q) && providerCountryIsos.value.has(c.iso2)
   )
   if (!match) return
-  const regionId = match.region ? regionNameToId(match.region) : isoToRegionId(match.iso2)
+  const regionId = resolveCountryRegionId(match)
   if (regionId) selectRegion(regionId)
   selectCountry(match.iso2)
   mobileSearch.value = ''
@@ -1042,10 +1095,6 @@ function fitProjectionToPathBounds(projection, items, extent, margin = FIT_PATH_
  * @returns {boolean}
  */
 function shouldIncludeInRegionFit(feature, regionId) {
-  if (regionId === 'europe' && feature.iso === 'RU') {
-    const [lng] = d3.geoCentroid(feature.geo)
-    return lng <= EUROPE_FIT_RUSSIA_MAX_LNG
-  }
   return feature.regionId === regionId
 }
 
@@ -1057,7 +1106,7 @@ function shouldIncludeInRegionFit(feature, regionId) {
 function getRegionFitFeatures(regionId) {
   const supportedIsosInRegion = props.countries
     .filter(c => {
-      const r = c.region ? regionNameToId(c.region) : isoToRegionId(c.iso2)
+      const r = resolveCountryRegionId(c)
       return r === regionId && mapSupportedIsos.value.has(c.iso2)
     })
     .map(c => c.iso2)
@@ -1250,7 +1299,7 @@ function buildDiaoyuOverlayFeatures(chinaDisplayName) {
     numericId: `cn-overlay-diaoyu-${i}`,
     name: 'Diaoyu Islands',
     displayName: chinaDisplayName,
-    regionId: 'asia-pacific',
+    regionId: 'asia',
     isChinaOverlay: true,
     geo: d3.geoCircle().center(coord).radius(0.065)()
   }))
@@ -1274,7 +1323,7 @@ async function loadChinaTerritoryOverlays(chinaDisplayName) {
         numericId: `cn-overlay-${id}`,
         name: feature.properties?.brkName || feature.properties?.name || 'China',
         displayName: chinaDisplayName,
-        regionId: 'asia-pacific',
+        regionId: 'asia',
         isChinaOverlay: true,
         geo: feature
       })
@@ -1344,7 +1393,7 @@ async function loadWorldMap() {
           displayName: unified ? chinaDisplayName : (cmsCountry?.name || mapName),
           regionId: mapName === 'Greenland'
             ? 'north-america'
-            : (iso ? isoToRegionId(iso) : null),
+            : (iso ? isoToMapRegionId(iso) : null),
           geo
         }
         return expandCountryGeoFeatures(baseFeature)
@@ -1458,30 +1507,111 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.ca-map__region-btn {
+.ca-map__region-dropdown {
+  --ca-region-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ca-region-duration: 380ms;
   position: absolute;
   top: 24px;
   left: 24px;
+  z-index: 31;
+  width: 260px;
   pointer-events: auto;
+}
+
+.ca-map__region-btn {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  width: 220px;
+  width: 100%;
   padding: 12px 16px;
   background: #fff;
-  border: 1px solid #f9fafb;
+  border: 1px solid #e8ecf2;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
   color: #1f2937;
   cursor: pointer;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s;
+  transition:
+    border-color var(--ca-region-duration) var(--ca-region-ease),
+    box-shadow var(--ca-region-duration) var(--ca-region-ease),
+    border-radius var(--ca-region-duration) var(--ca-region-ease),
+    background 0.2s ease;
+}
+
+.ca-map__region-btn svg {
+  flex-shrink: 0;
+  transition: transform var(--ca-region-duration) var(--ca-region-ease);
+}
+
+.ca-map__region-dropdown--open .ca-map__region-btn {
+  border-color: #3b82f6;
+  box-shadow:
+    inset 0 0 0 1px #3b82f6,
+    0 2px 12px rgba(0, 0, 0, 0.04);
+  border-bottom-color: #eef2f7;
+  border-radius: 8px 8px 0 0;
+}
+
+.ca-map__region-dropdown--open .ca-map__region-btn svg {
+  transform: rotate(90deg);
 }
 
 .ca-map__region-btn:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.ca-map__region-dropdown--open .ca-map__region-btn:hover {
+  border-color: #3b82f6;
+}
+
+.ca-map__region-menu-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    grid-template-rows var(--ca-region-duration) var(--ca-region-ease),
+    opacity calc(var(--ca-region-duration) * 0.85) var(--ca-region-ease);
+}
+
+.ca-map__region-dropdown--open .ca-map__region-menu-wrap {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ca-map__region-menu {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #3b82f6;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+.ca-map__region-dropdown--open .ca-map__panel-list--regions {
+  padding-top: 2px;
+}
+
+.ca-map__region-dropdown--open .ca-map__panel-row--region {
+  animation: ca-region-item-in 0.42s var(--ca-region-ease) backwards;
+  animation-delay: calc(70ms + var(--item-index, 0) * 32ms);
+}
+
+@keyframes ca-region-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ca-map__expand-btn {
@@ -1621,11 +1751,11 @@ onUnmounted(() => {
 /* Left overlay panel */
 .ca-map__panel {
   position: absolute;
-  top: 80px;
-  left: 28px;
+  top: 68px;
+  left: 24px;
   z-index: 25;
-  width: 300px;
-  max-height: calc(100% - 100px);
+  width: 260px;
+  max-height: calc(100% - 92px);
   background: #fff;
   border-radius: 8px;
   border: 1px solid #e8ecf2;
@@ -1639,7 +1769,17 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   z-index: 18;
-  background: transparent;
+  background: rgba(248, 247, 250, 0.01);
+}
+
+.backdrop-fade-enter-active,
+.backdrop-fade-leave-active {
+  transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop-fade-enter-from,
+.backdrop-fade-leave-to {
+  opacity: 0;
 }
 
 .ca-map__footnote {
@@ -1697,18 +1837,22 @@ onUnmounted(() => {
   flex: 1;
 }
 
+.ca-map__panel-list--regions {
+  padding: 6px;
+}
+
 .ca-map__panel-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 10px;
-  border-radius: 8px;
+  padding: 12px 10px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .ca-map__panel-row:hover {
-  background: #f8fafc;
+  background: transparent;
 }
 
 .ca-map__panel-row--active {
@@ -1717,6 +1861,18 @@ onUnmounted(() => {
 
 .ca-map__panel-row--region {
   justify-content: space-between;
+  gap: 12px;
+}
+
+.ca-map__panel-row--region:hover,
+.ca-map__panel-row--region-active {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px #3b82f6;
+}
+
+.ca-map__panel-row--region .ca-map__panel-row-title {
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .ca-map__panel-row-body {
@@ -1816,12 +1972,15 @@ onUnmounted(() => {
 
 .panel-slide-enter-active,
 .panel-slide-leave-active {
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 320ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .panel-slide-enter-from,
 .panel-slide-leave-to {
   opacity: 0;
-  transform: translateX(-12px);
+  transform: translateY(-10px);
 }
 
 @media (max-width: 768px) {
@@ -1865,8 +2024,12 @@ onUnmounted(() => {
 @media (prefers-reduced-motion: reduce) {
   .ca-map__country,
   .ca-map__panel,
-  .ca-map__region-btn {
+  .ca-map__region-dropdown,
+  .ca-map__region-menu-wrap,
+  .ca-map__region-btn,
+  .ca-map__panel-row--region {
     transition: none;
+    animation: none;
   }
 }
 </style>

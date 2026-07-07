@@ -7,7 +7,7 @@
         class="ca-highlight-card"
       >
         <div class="ca-highlight-card__icon" aria-hidden="true">
-          <img :src="item.icon" alt="" width="32" height="32" />
+          <img :src="item.icon" alt="" width="24" height="24" />
         </div>
         <h3 class="ca-highlight-card__title">
           {{ item.title[localeKey] || item.title.en }}
@@ -23,6 +23,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { assetUrl } from '@/utils/assetUrl'
 
 const { locale } = useI18n()
 const localeKey = computed(() => locale.value)
@@ -30,7 +31,7 @@ const localeKey = computed(() => locale.value)
 /** @type {Array<{ icon: string, title: Record<string, string>, desc: Record<string, string> }>} */
 const highlights = [
   {
-    icon: '/assets/highlights/icon-globe.svg',
+    icon: assetUrl('assets/highlights/icon-market.svg'),
     title: {
       en: 'Route by market',
       zh: '按市场路由',
@@ -43,7 +44,7 @@ const highlights = [
     }
   },
   {
-    icon: '/assets/highlights/icon-shield.svg',
+    icon: assetUrl('assets/highlights/icon-shield.svg'),
     title: {
       en: 'Compare assurance',
       zh: '对比保证等级',
@@ -56,7 +57,7 @@ const highlights = [
     }
   },
   {
-    icon: '/assets/highlights/icon-plug.svg',
+    icon: assetUrl('assets/highlights/icon-globe.svg'),
     title: {
       en: 'Connect providers',
       zh: '连接服务商',
@@ -75,16 +76,16 @@ const highlights = [
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap');
 
 .ca-highlights {
-  padding: 0 48px 80px;
+  padding: 0 var(--ca-hub-content-padding-x) 48px;
   background: #fff;
 }
 
 .ca-highlights__container {
-  max-width: 1320px;
+  max-width: var(--ca-hub-content-max);
   margin: 0 auto;
   display: flex;
-  align-items: stretch;
-  gap: 32px;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .ca-highlight-card {
@@ -93,80 +94,79 @@ const highlights = [
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  padding: 32px;
-  border: 1px solid #dbd9e1;
-  border-radius: 8px;
-  background: #fff;
+  gap: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
   text-align: left;
 }
 
 .ca-highlight-card__icon {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #09121f;
+  color: #334155;
+  opacity: 0.85;
 }
 
 .ca-highlight-card__icon img {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
 .ca-highlight-card__title {
   margin: 0;
   font-family: 'Nunito Sans', 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 28px;
-  color: #12003a;
+  line-height: 24px;
+  color: #1e293b;
   word-break: break-word;
 }
 
 .ca-highlight-card__desc {
   margin: 0;
   font-family: 'Nunito Sans', 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
-  color: #4c4264;
+  line-height: 22px;
+  color: #64748b;
   word-break: break-word;
 }
 
 @media (max-width: 1024px) {
   .ca-highlights {
-    padding: 0 32px 64px;
+    padding: 0 var(--ca-hub-content-padding-x) 40px;
   }
 
   .ca-highlights__container {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
   .ca-highlights {
-    padding: 0 20px 48px;
+    padding: 0 var(--ca-hub-content-padding-x-mobile) 36px;
   }
 
   .ca-highlight-card {
-    padding: 24px;
-    gap: 20px;
+    gap: 8px;
   }
 
   .ca-highlight-card__title {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   .ca-highlight-card__desc {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 </style>

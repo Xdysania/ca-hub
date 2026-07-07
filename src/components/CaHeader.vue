@@ -4,7 +4,7 @@
       <!-- 左侧：Logo + 导航 -->
       <div class="ca-header__left">
         <a href="/" class="ca-header__logo" aria-label="NotaSign Home">
-          <img src="/assets/header/logo.svg" alt="NotaSign" width="65" height="38" />
+          <img :src="assetUrl('assets/header/logo.svg')" alt="NotaSign" width="65" height="38" />
         </a>
 
         <nav class="ca-header__nav" aria-label="Main navigation">
@@ -17,7 +17,7 @@
             <span>{{ ct(item.key) }}</span>
             <img
               v-if="item.hasChevron"
-              src="/assets/header/chevron.svg"
+              :src="assetUrl('assets/header/chevron.svg')"
               alt=""
               width="14"
               height="14"
@@ -37,7 +37,7 @@
             aria-haspopup="listbox"
             @click.stop="langOpen = !langOpen"
           >
-            <img src="/assets/header/icon-globe.svg" alt="" width="20" height="20" class="ca-header__globe" />
+            <img :src="assetUrl('assets/header/icon-globe.svg')" alt="" width="20" height="20" class="ca-header__globe" />
           </button>
           <ul v-if="langOpen" class="ca-header__lang-menu" role="listbox">
             <li
@@ -54,14 +54,14 @@
           </ul>
         </div>
 
-        <img src="/assets/header/divider.svg" alt="" class="ca-header__divider" width="1" height="16" />
+        <img :src="assetUrl('assets/header/divider.svg')" alt="" class="ca-header__divider" width="1" height="16" />
 
         <!-- Compliance Assistant -->
         <a href="#" class="ca-header__compliance">
           <span>{{ ct('compliance') }}</span>
         </a>
 
-        <img src="/assets/header/divider.svg" alt="" class="ca-header__divider" width="1" height="16" />
+        <img :src="assetUrl('assets/header/divider.svg')" alt="" class="ca-header__divider" width="1" height="16" />
 
         <a href="/login" class="ca-header__login">{{ ct('login') }}</a>
 
@@ -79,6 +79,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter, useRoute } from 'vue-router'
+import { assetUrl } from '@/utils/assetUrl'
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -368,11 +369,11 @@ onUnmounted(() => {
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid #7038f3;
   background: linear-gradient(90deg, rgba(112, 56, 243, 0.1) 0%, rgba(4, 215, 155, 0.1) 100%);
   box-sizing: border-box;
-  transition: box-shadow 0.2s, transform 0.15s;
+  transition: transform 0.15s;
 }
 
 .ca-header__btn-outline span {
@@ -383,7 +384,6 @@ onUnmounted(() => {
 }
 
 .ca-header__btn-outline:hover {
-  box-shadow: 0 4px 12px rgba(112, 56, 243, 0.18);
   transform: translateY(-1px);
 }
 
@@ -400,17 +400,16 @@ onUnmounted(() => {
   color: #fff;
   background: #7038f3;
   border: 1px solid #7038f3;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   white-space: nowrap;
   box-sizing: border-box;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.15s;
 }
 
 .ca-header__btn-primary:hover {
   background: #5b21b6;
   border-color: #5b21b6;
-  box-shadow: 0 4px 12px rgba(112, 56, 243, 0.35);
   transform: translateY(-1px);
 }
 

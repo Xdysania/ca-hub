@@ -4,7 +4,7 @@
       <div class="ca-footer__top">
         <div class="ca-footer__brand">
           <a href="/" class="ca-footer__logo" aria-label="NotaSign Home">
-            <img src="/assets/header/logo.svg" alt="NotaSign" width="109" height="64" />
+            <img :src="assetUrl('assets/header/logo.svg')" alt="NotaSign" width="109" height="64" />
           </a>
           <p class="ca-footer__tagline">{{ ct('tagline') }}</p>
         </div>
@@ -25,10 +25,10 @@
       <div class="ca-footer__bottom">
         <div class="ca-footer__social-row">
           <a href="https://www.linkedin.com/company/notasign" class="ca-footer__social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="/assets/footer/icon-linkedin.svg" alt="" width="24" height="24" />
+            <img :src="assetUrl('assets/footer/icon-linkedin.svg')" alt="" width="24" height="24" />
           </a>
           <a href="https://www.youtube.com/@notasign" class="ca-footer__social" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <img src="/assets/footer/icon-youtube.svg" alt="" width="24" height="24" />
+            <img :src="assetUrl('assets/footer/icon-youtube.svg')" alt="" width="24" height="24" />
           </a>
 
           <div ref="langRef" class="ca-footer__lang">
@@ -41,7 +41,7 @@
             >
               <span class="ca-footer__lang-label">{{ currentLocaleLabel }}</span>
               <img
-                src="/assets/footer/icon-chevron-down.svg"
+                :src="assetUrl('assets/footer/icon-chevron-down.svg')"
                 alt=""
                 width="20"
                 height="20"
@@ -76,15 +76,15 @@
           <div class="ca-footer__badges" aria-label="Compliance certifications">
             <img
               class="ca-footer__badge-csc"
-              src="/assets/footer/badge-csc.png"
+              :src="assetUrl('assets/footer/badge-csc.png')"
               alt="Cloud Signature Consortium"
               width="102"
               height="32"
             />
-            <img src="/assets/footer/badge-eidas.svg" alt="eIDAS" width="32" height="32" />
-            <img src="/assets/footer/badge-soc2.svg" alt="AICPA SOC" width="32" height="32" />
-            <img src="/assets/footer/badge-gdpr.svg" alt="GDPR" width="32" height="32" />
-            <img src="/assets/footer/badge-ccpa.svg" alt="CCPA" width="32" height="32" />
+            <img :src="assetUrl('assets/footer/badge-eidas.svg')" alt="eIDAS" width="32" height="32" />
+            <img :src="assetUrl('assets/footer/badge-soc2.svg')" alt="AICPA SOC" width="32" height="32" />
+            <img :src="assetUrl('assets/footer/badge-gdpr.svg')" alt="GDPR" width="32" height="32" />
+            <img :src="assetUrl('assets/footer/badge-ccpa.svg')" alt="CCPA" width="32" height="32" />
           </div>
         </div>
       </div>
@@ -96,6 +96,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import { assetUrl } from '@/utils/assetUrl'
 
 const { locale } = useI18n()
 const router = useRouter()

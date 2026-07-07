@@ -1,3 +1,5 @@
+import { assetUrl } from '@/utils/assetUrl'
+
 /**
  * 从 Provider 官网字段解析域名，用于 favicon / logo 回退
  * @param {string} [url]
@@ -29,9 +31,9 @@ export function getProviderLogoSources(provider) {
   if (provider.logoUrl) sources.push(provider.logoUrl)
 
   if (slug) {
-    sources.push(`/assets/providers/${slug}.png`)
-    sources.push(`/assets/providers/${slug}.svg`)
-    sources.push(`/assets/providers/${slug}.webp`)
+    sources.push(assetUrl(`assets/providers/${slug}.png`))
+    sources.push(assetUrl(`assets/providers/${slug}.svg`))
+    sources.push(assetUrl(`assets/providers/${slug}.webp`))
   }
 
   const domain = getProviderDomain(provider.website || provider.learnMoreUrl)

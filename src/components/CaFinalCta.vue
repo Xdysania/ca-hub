@@ -17,7 +17,7 @@
 
         <img
           class="ca-cta__image"
-          src="/assets/cta/hero.jpg"
+          :src="assetUrl('assets/cta/hero.jpg')"
           alt=""
           width="509"
           height="503"
@@ -32,6 +32,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { assetUrl } from '@/utils/assetUrl'
 
 const props = defineProps({
   selectedCountry: { type: Object, default: null }
