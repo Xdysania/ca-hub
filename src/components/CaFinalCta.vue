@@ -80,7 +80,7 @@ const contactUrl = computed(() => {
  * 文案区 420px @ left 120px；图片 509×503 @ right 50px；紫卡高 530px、上溢 23px
  */
 .ca-cta {
-  padding: 0 var(--ca-hub-content-padding-x) 80px;
+  padding: 24px var(--ca-hub-content-padding-x) 80px;
   background: #fff;
 }
 
@@ -250,7 +250,7 @@ const contactUrl = computed(() => {
 
 @media (max-width: 640px) {
   .ca-cta {
-    padding: 0 var(--ca-hub-content-padding-x-mobile) 56px;
+    padding: 24px var(--ca-hub-content-padding-x-mobile) 56px;
   }
 
   .ca-cta__content {

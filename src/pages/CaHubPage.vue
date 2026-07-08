@@ -27,8 +27,13 @@
 
         <CaProviderFilters
           :search-query="searchQuery"
-          :selected-country="selectedCountry"
+          :selected-country-isos="selectedCountryIsos"
+          :selected-category="selectedCategory"
+          :country-options="filterCountryOptions"
+          :category-options="categoryOptions"
           @update:search-query="searchQuery = $event"
+          @update:selected-country-isos="onFilterCountriesChange"
+          @update:selected-category="selectedCategory = $event"
           @clear="clearAllFilters"
         />
 
@@ -76,7 +81,7 @@
     <CaTrustFeatures />
 
     <!-- P5 Final CTA -->
-    <CaFinalCta :selected-country="selectedCountry" />
+    <CaFinalCta :selected-country="selectedCountryForCta" />
 
     <CaFooter />
   </div>
@@ -97,6 +102,8 @@ import CaTrustFeatures from '@/components/CaTrustFeatures.vue'
 import CaFinalCta from '@/components/CaFinalCta.vue'
 import CaFooter from '@/components/CaFooter.vue'
 import caRegistryData from '/data/ca-registry.json?url'
+import providerIntegrationsData from '/data/provider-integrations.json?url'
+import filterCountriesData from '/data/filter-countries.json?url'
 
 const route = useRoute()
 const router = useRouter()
@@ -104,11 +111,20 @@ const { locale } = useI18n()
 
 const PAGE_SIZE = 9
 
+const CATEGORY_OPTIONS = [
+  { value: 'EID AUTHENTICATION', label: 'eID Authentication' },
+  { value: 'ESIGNATURE', label: 'eSignature' },
+  { value: 'EUDIW', label: 'EUDIW' }
+]
+
 const loading = ref(true)
 const countries = ref([])
+const filterCountries = ref([])
 const providers = ref([])
-const selectedCountry = ref(null)
+const integrationProviders = ref([])
+const selectedCountryIsos = ref([])
 const searchQuery = ref('')
+const selectedCategory = ref('')
 const currentPage = ref(1)
 
 const content = {
@@ -150,29 +166,54 @@ function ct(key) {
   return content[lang]?.[key] || key
 }
 
-const filteredProviders = computed(() => {
-  let result = [...providers.value]
+const categoryOptions = CATEGORY_OPTIONS
 
-  if (selectedCountry.value) {
-    const iso2 = selectedCountry.value.iso2
-    result = result.filter(p => {
-      const codes = (p.countries || []).map(c => typeof c === 'string' ? c : c.iso2 || c)
-      return codes.includes(iso2)
+/** @type {import('vue').ComputedRef<Array<{ iso2: string, name: string }>>} */
+const filterCountryOptions = computed(() => {
+  if (filterCountries.value.length) return filterCountries.value
+  return countries.value
+})
+
+/** @type {import('vue').ComputedRef<{ iso2: string, name: string } | null>} */
+const selectedCountryForCta = computed(() => {
+  const iso2 = selectedCountryIsos.value[0]
+  if (!iso2) return null
+  const country = filterCountryOptions.value.find(item => item.iso2 === iso2)
+    || countries.value.find(item => item.iso2 === iso2)
+  return country || { iso2, name: iso2 }
+})
+
+const filteredProviders = computed(() => {
+  let result = [...integrationProviders.value]
+
+  if (selectedCountryIsos.value.length) {
+    const selected = new Set(selectedCountryIsos.value)
+    result = result.filter((provider) => {
+      const codes = (provider.countries || []).map(c => typeof c === 'string' ? c : c.iso2 || c)
+      return codes.some(code => selected.has(code))
     })
+  }
+
+  if (selectedCategory.value) {
+    result = result.filter(provider => provider.category === selectedCategory.value)
   }
 
   if (searchQuery.value.trim()) {
     const query = searchQuery.value.toLowerCase().trim()
-    result = result.filter(p => {
+    result = result.filter((provider) => {
       const searchable = [
-        p.name, p.slug, p.category, p.providerType,
-        p.cardSummary?.en, p.cardSummary?.zh,
-        ...(p.countries?.map(c => {
-          if (typeof c === 'string') {
-            const country = countries.value.find(co => co.iso2 === c)
-            return country?.name || c
+        provider.name,
+        provider.slug,
+        provider.category,
+        provider.providerType,
+        provider.cardSummary?.en,
+        provider.cardSummary?.zh,
+        ...(provider.countries?.map((code) => {
+          if (typeof code === 'string') {
+            const country = countries.value.find(item => item.iso2 === code)
+            return country?.name || code
           }
-          return c.name || c.iso2
+          return code.name || code.iso2
         }) || [])
       ].join(' ').toLowerCase()
       return searchable.includes(query)
@@ -186,8 +227,8 @@ const filteredProviders = computed(() => {
   })
 
   const seen = new Set()
-  return result.filter(p => {
-    const id = p.slug || p.id
+  return result.filter((provider) => {
+    const id = provider.slug || provider.id
     if (seen.has(id)) return false
     seen.add(id)
     return true
@@ -203,21 +244,28 @@ const paginatedProviders = computed(() => {
 
 /** @param {string} iso2 */
 function handleCountrySelect(iso2) {
-  const country = countries.value.find(c => c.iso2 === iso2)
-  selectedCountry.value = country || null
+  selectedCountryIsos.value = [iso2]
   currentPage.value = 1
   syncUrlQuery()
 }
 
 function handleCountryClear() {
-  selectedCountry.value = null
+  selectedCountryIsos.value = []
+  currentPage.value = 1
+  syncUrlQuery()
+}
+
+/** @param {string[]} isos */
+function onFilterCountriesChange(isos) {
+  selectedCountryIsos.value = [...isos]
   currentPage.value = 1
   syncUrlQuery()
 }
 
 function clearAllFilters() {
   searchQuery.value = ''
-  selectedCountry.value = null
+  selectedCategory.value = ''
+  selectedCountryIsos.value = []
   currentPage.value = 1
   syncUrlQuery()
 }
@@ -237,8 +285,8 @@ function goToPage(page) {
 
 function syncUrlQuery() {
   const query = { ...route.query }
-  if (selectedCountry.value) {
-    query.country = selectedCountry.value.iso2
+  if (selectedCountryIsos.value.length) {
+    query.country = selectedCountryIsos.value.join(',')
   } else {
     delete query.country
   }
@@ -250,17 +298,20 @@ function syncUrlQuery() {
   router.replace({ query })
 }
 
-watch([searchQuery, selectedCountry], () => {
+watch([searchQuery, selectedCountryIsos, selectedCategory], () => {
   currentPage.value = 1
   syncUrlQuery()
 })
 
 onMounted(async () => {
-  await fetchMockData()
+  await fetchRegistryData()
 
   if (route.query.country) {
-    const country = countries.value.find(c => c.iso2 === route.query.country)
-    if (country) selectedCountry.value = country
+    const isos = String(route.query.country)
+      .split(',')
+      .map(code => code.trim().toUpperCase())
+      .filter(Boolean)
+    selectedCountryIsos.value = isos
   }
   if (route.query.page) {
     const page = parseInt(route.query.page, 10)
@@ -268,18 +319,35 @@ onMounted(async () => {
   }
 })
 
-async function fetchMockData() {
+async function fetchRegistryData() {
   loading.value = true
   try {
-    const res = await fetch(caRegistryData)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = await res.json()
-    countries.value = data.countries || []
-    providers.value = data.providers || []
+    const [registryRes, integrationsRes, filterCountriesRes] = await Promise.all([
+      fetch(caRegistryData),
+      fetch(providerIntegrationsData),
+      fetch(filterCountriesData)
+    ])
+    if (!registryRes.ok) throw new Error(`Registry HTTP ${registryRes.status}`)
+    const registry = await registryRes.json()
+    countries.value = registry.countries || []
+    providers.value = registry.providers || []
+
+    if (filterCountriesRes.ok) {
+      const filterData = await filterCountriesRes.json()
+      filterCountries.value = filterData.countries || []
+    }
+
+    if (integrationsRes.ok) {
+      const integrations = await integrationsRes.json()
+      integrationProviders.value = integrations.providers || []
+    } else {
+      integrationProviders.value = registry.providers || []
+    }
   } catch (error) {
     console.error('[CA Hub] Failed to load CA registry:', error)
     countries.value = []
     providers.value = []
+    integrationProviders.value = []
   } finally {
     loading.value = false
   }
@@ -387,7 +455,7 @@ async function fetchMockData() {
 }
 
 .ca-providers__empty-cta:hover {
-  background: #5b21b6;
+  background: #8b5cf6;
 }
 
 .ca-providers__pagination {

@@ -139,12 +139,11 @@ onMounted(() => {
   background: #7038f3;
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .ca-hero__btn-primary:hover {
-  background: #5b21b6;
-  transform: translateY(-1px);
+  background: #8b5cf6;
 }
 
 .ca-hero__btn-secondary {
@@ -245,13 +244,6 @@ onMounted(() => {
   .ca-hero__btn-primary,
   .ca-hero__btn-secondary {
     justify-content: center;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ca-hero__btn-primary:hover,
-  .ca-hero__btn-secondary:hover {
-    transform: none;
   }
 }
 </style>

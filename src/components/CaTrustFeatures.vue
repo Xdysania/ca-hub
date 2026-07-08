@@ -46,7 +46,7 @@ const features = [
   {
     title: { en: 'Coverage by market', zh: '按市场覆盖', 'zh-HK': '按市場覆蓋' },
     desc: { en: 'See available CAs and QTSPs by country.', zh: '按国家查看可用的 CA 与 QTSP。', 'zh-HK': '按國家查看可用的 CA 與 QTSP。' },
-    icon: () => h('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
+    icon: () => h('svg', { width: 38, height: 38, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
       h('circle', { cx: '12', cy: '12', r: '10' }),
       h('path', { d: 'M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z' })
     ])
@@ -54,21 +54,21 @@ const features = [
   {
     title: { en: 'Assurance-aware routing', zh: '保证等级感知路由', 'zh-HK': '保證等級感知路由' },
     desc: { en: 'Match assurance levels (Standard, AES, QES) based on regulations.', zh: '根据法规要求匹配保证等级（Standard、AES、QES）。', 'zh-HK': '根據法規要求匹配保證等級（Standard、AES、QES）。' },
-    icon: () => h('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
+    icon: () => h('svg', { width: 38, height: 38, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
       h('path', { d: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' })
     ])
   },
   {
     title: { en: 'Provider detail pages', zh: 'Provider 详情页', 'zh-HK': 'Provider 詳情頁' },
     desc: { en: 'Access guidance on identity methods and technical requirements.', zh: '获取身份认证方式与技术要求的指引。', 'zh-HK': '獲取身分認證方式與技術要求的指引。' },
-    icon: () => h('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
+    icon: () => h('svg', { width: 38, height: 38, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
       h('path', { d: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' })
     ])
   },
   {
     title: { en: 'Sales-assisted setup', zh: '销售协助配置', 'zh-HK': '銷售協助配置' },
     desc: { en: 'Get expert help for complex markets.', zh: '获取专家支持，应对复杂市场。', 'zh-HK': '獲取專家支援，應對複雜市場。' },
-    icon: () => h('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
+    icon: () => h('svg', { width: 38, height: 38, viewBox: '0 0 24 24', fill: 'none', stroke: ICON_STROKE, 'stroke-width': '1.5' }, [
       h('path', { d: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2' }),
       h('circle', { cx: '9', cy: '7', r: '4' }),
       h('path', { d: 'M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75' })
@@ -107,28 +107,34 @@ const features = [
 
 .ca-trust-features__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
 }
 
 .ca-trust-card {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 168px;
+  padding: 48px;
   background: #fff;
   border: 1px solid #dbd9e1;
   border-radius: 8px;
 }
 
 .ca-trust-card__icon {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #12003a;
+}
+
+.ca-trust-card__body {
+  text-align: center;
 }
 
 .ca-trust-card__icon :deep(svg) {
@@ -153,10 +159,17 @@ const features = [
   color: #4c4264;
 }
 
+@media (max-width: 1100px) {
+  .ca-trust-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
 @media (max-width: 700px) {
   .ca-trust-features__grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 60px;
   }
 
   .ca-trust-features__title {
@@ -170,7 +183,8 @@ const features = [
   }
 
   .ca-trust-card {
-    padding: 24px;
+    min-height: 0;
+    padding: 36px;
   }
 
   .ca-trust-card__title {

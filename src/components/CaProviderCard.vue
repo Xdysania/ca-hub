@@ -56,6 +56,7 @@ function ct(key) {
 const categoryLabelMap = {
   ESIGNATURE: 'E-SIGNATURE',
   'EID AUTHENTICATION': 'EID AUTHENTICATION',
+  EUDIW: 'EUDIW',
   ESEALING: 'E-SEALING'
 }
 

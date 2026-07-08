@@ -373,7 +373,6 @@ onUnmounted(() => {
   border: 1px solid #7038f3;
   background: linear-gradient(90deg, rgba(112, 56, 243, 0.1) 0%, rgba(4, 215, 155, 0.1) 100%);
   box-sizing: border-box;
-  transition: transform 0.15s;
 }
 
 .ca-header__btn-outline span {
@@ -381,10 +380,6 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.ca-header__btn-outline:hover {
-  transform: translateY(-1px);
 }
 
 /* Free Trial */
@@ -404,13 +399,12 @@ onUnmounted(() => {
   text-decoration: none;
   white-space: nowrap;
   box-sizing: border-box;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .ca-header__btn-primary:hover {
-  background: #5b21b6;
-  border-color: #5b21b6;
-  transform: translateY(-1px);
+  background: #8b5cf6;
+  border-color: #8b5cf6;
 }
 
 /* 响应式 */
@@ -446,13 +440,6 @@ onUnmounted(() => {
 
   .ca-header__inner {
     padding: 10px 16px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ca-header__btn-outline:hover,
-  .ca-header__btn-primary:hover {
-    transform: none;
   }
 }
 </style>

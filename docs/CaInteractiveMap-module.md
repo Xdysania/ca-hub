@@ -1,3 +1,109 @@
+# CaInteractiveMap 交互地图模块代码导出
+
+> 导出日期：2026-07-08
+> 用途：供性能优化 Review / 其他 AI 检索分析
+
+---
+
+## 1. 模块概览
+
+| 项目 | 说明 |
+|------|------|
+| 主组件 | `src/components/CaInteractiveMap.vue`（约 2247 行） |
+| 地理工具 | `src/utils/geoRegions.js`（约 403 行） |
+| 地图数据 | `public/data/world-map-50m.json`、`public/data/cn-claimed-territories.geojson` |
+| 技术栈 | Vue 3 Composition API、D3.js、TopoJSON |
+
+### 视图层级
+
+```
+world（全球）
+  └─ region（洲，如 Asia）
+       └─ country（国家，如 China）
+            └─ providers（该国 CA 列表）
+```
+
+### UI 结构（统一下拉面板）
+
+- 顶部 `ca-map__region-dropdown` 固定浮层，三层内容共用同一套下拉样式
+- `panelMode`: `regions` → `countries` → `providers`
+- 左侧不再使用独立大卡片面板（provider 层也已并入下拉）
+
+---
+
+## 2. 性能优化要点
+
+1. **`shallowRef`**：`mapTopology`、`geoFeatures`、`renderedFeatures`、`projection` 等大地理数据不走深层响应式
+2. **事件委托**：`mousemove` / `click` 挂在 `.ca-map__countries` 容器，约 600 个 path 无独立监听
+3. **`providerMetaByCountry` 缓存**：避免重复扫描 providers
+4. **`featurePathNodes` DOM 缓存**：动画帧内 `setAttribute('d')` 原地更新，避免 Vue 全量重绘
+5. **Hover 节流**：同国家内移动只更新 tooltip；跨国家才 `syncMapVisuals()`
+6. **动画期禁用 path CSS transition**：`ca-map__svg-wrap--animating .ca-map__country { transition: none }`
+
+---
+
+## 3. 地图过渡动画
+
+### 投影插值
+
+- `applyProjection(targetProj, animate)` 在当前投影与目标投影之间做 **单调线性** `scale` / `translate` 插值
+- 缓动：`d3.easeCubicInOut`
+- 时长：`480ms ~ 720ms`，按缩放与位移幅度自适应
+- **不使用** `d3.interpolateZoom`（会在焦点偏移时先缩小再放大）
+- **不使用** 外层 CSS `scale` 动画（会与投影动画叠加产生伪影）
+
+### 层级切换继承当前视图
+
+- `selectCountry()` 直接从当前洲视图推进到国家，不先 `selectRegion()` 再跳国家
+- `selectFromSearch()` 同样只调用 `selectCountry()`，避免双重动画
+
+### 动画 DOM 同步（2026-07-08 修复）
+
+**问题**：切换层级时 Vue 重建 SVG path，但 `featurePathNodes` 仍指向旧节点，导致中国主张领土等小区域在动画中"卡住"重叠。
+
+**修复**：
+1. 动画开始前 `nextTick` → `cacheFeaturePathNodes()` 刷新 DOM 缓存
+2. `updatePathsInPlace` 中若节点数与特征数不一致，自动重新缓存
+3. 动画结束调用 `renderPaths()` 做最终同步
+
+---
+
+## 4. 中国领土处理
+
+- `isChinaUnifiedTerritory`：台港澳等统一着色为 CN
+- `loadChinaTerritoryOverlays`：藏南等主张领土 GeoJSON + 钓鱼岛圆点叠加
+- `isChinaOverlay` 特征在描边上与填充同色，消除内部接缝
+
+---
+
+## 5. 关键函数索引
+
+| 函数 | 职责 |
+|------|------|
+| `loadWorldMap` | 加载 TopoJSON，展开多块国土，注入中国叠加层 |
+| `renderPaths` | 全量计算 path d、按面积排序、缓存 DOM |
+| `updatePathsInPlace` | 动画帧原地更新 path d |
+| `cacheFeaturePathNodes` | 同步 SVG path DOM 节点缓存 |
+| `applyProjection` | 投影切换 + 动画插值 |
+| `fitMapToWorld/Region/Country` | 各层级 fit 计算 |
+| `syncMapVisuals` | 直接操作 DOM 更新 fill/stroke/class |
+| `selectRegion/selectCountry` | 层级导航 + 触发地图 fit |
+| `getCountryFill` | 按 viewLevel / hover / selected 决定着色 |
+
+---
+
+## 6. 待优化方向（供 Review）
+
+1. 动画期间可考虑 `v-memo` 或去掉 `:d` 绑定，彻底避免 Vue patch 与 DOM 直写冲突
+2. `renderPaths` 按面积排序在每次全量渲染时 O(n log n)，可考虑仅在初始加载排序
+3. 国界 mesh 每帧 `updateBorderMeshInPlace`，可改为仅在关键帧更新
+4. 移动端下拉 `max-height` 仍可进一步贴合设计稿
+
+---
+
+## 7. 主组件完整源码
+
+```vue
 <template>
   <section class="ca-map" id="ca-map">
     <div class="ca-map__container">
@@ -72,8 +178,30 @@
                 :style="{ left: tooltipPos.x + 'px', top: tooltipPos.y + 'px' }"
               >
                 <span class="ca-map__tooltip-name">
-                  {{ tooltipLabel }}
+                  {{ viewLevel === 'world' && hoveredRegionId ? regionLabel(hoveredRegionId) : hoveredFeature.displayName }}
                 </span>
+                <span
+                  v-if="viewLevel === 'world' && hoveredRegionId && hoveredFeature.displayName"
+                  class="ca-map__tooltip-meta"
+                >
+                  {{ hoveredFeature.displayName }}
+                </span>
+                <span
+                  v-if="viewLevel === 'region' && hoveredFeature.iso && isCountrySupported(hoveredFeature.iso)"
+                  class="ca-map__tooltip-meta"
+                >
+                  {{ getProviderCount(hoveredFeature.iso) }} {{ ct('providersLabel') }}
+                </span>
+                <template v-if="viewLevel === 'world' && hoveredRegionId">
+                  <span
+                    v-if="hoveredFeature.iso && isCountrySupported(hoveredFeature.iso)"
+                    class="ca-map__tooltip-meta"
+                  >
+                    {{ getProviderCount(hoveredFeature.iso) }} {{ ct('providersLabel') }}
+                  </span>
+                  <span v-else class="ca-map__tooltip-meta">{{ ct('clickToExplore') }}</span>
+                </template>
+                <span class="ca-map__tooltip-arrow" aria-hidden="true" />
               </div>
             </transition>
           </Teleport>
@@ -241,8 +369,7 @@ import {
   extractPolygonGeometries,
   resolvePolygonDisplayRegion,
   regionIdFromCoordinates,
-  REGION_IDS,
-  MAP_NAMES_WITHOUT_REGION
+  REGION_IDS
 } from '@/utils/geoRegions'
 import cnClaimedTerritoriesData from '/data/cn-claimed-territories.geojson?url'
 import worldAtlasData from '/data/world-map-50m.json?url'
@@ -323,12 +450,6 @@ const ANTARCTICA_ID = '010'
 const GREENLAND_ID = '304'
 const EXCLUDED_FROM_FIT = new Set([ANTARCTICA_ID, GREENLAND_ID])
 
-/**
- * 调试开关：点亮所有已纳入大洲划分的国家，便于核对 region 归属。
- * 验证完毕后改回 false。
- */
-const LIGHT_ALL_COUNTRIES = true
-
 const mapWrapRef = ref(null)
 const mapTopology = shallowRef(null)
 const borderMeshGeo = shallowRef(null)
@@ -346,12 +467,8 @@ let mapAnimationGeneration = 0
 let mapVisualSyncFrame = 0
 /** @type {number} */
 let tooltipSyncFrame = 0
-/** @type {number} */
-let tooltipAnimationFrame = 0
 /** @type {{ x: number, y: number } | null} */
 let pendingTooltipPos = null
-/** @type {{ x: number, y: number } | null} */
-let tooltipTargetPos = null
 /** @type {number} */
 let lastHoveredFeatureIndex = -1
 
@@ -489,13 +606,6 @@ function regionLabel(regionId) {
   return regionLabels[lang][regionId] || regionId
 }
 
-const tooltipLabel = computed(() => {
-  if (viewLevel.value === 'world' && hoveredRegionId.value) {
-    return `Explore ${regionLabel(hoveredRegionId.value)}`
-  }
-  return hoveredFeature.value?.displayName || ''
-})
-
 const providerMetaByCountry = computed(() => {
   /** @type {Map<string, { count: number, providers: any[], badges: string[] }>} */
   const map = new Map()
@@ -627,23 +737,8 @@ function regionNameToId(regionName) {
   return map[regionName] ?? null
 }
 
-/**
- * 地图上该要素是否应显示为「已点亮」底色
- * @param {object} feature
- * @returns {boolean}
- */
-function isFeatureMapLit(feature) {
-  if (feature?.numericId === ANTARCTICA_ID || isGreenland(feature)) return false
-  if (MAP_NAMES_WITHOUT_REGION.has(feature?.name)) return false
-  if (LIGHT_ALL_COUNTRIES) {
-    return Boolean(feature?.regionId || feature?.iso)
-  }
-  return Boolean(feature?.iso && isCountrySupported(feature.iso))
-}
-
 /** @param {string} iso */
 function isCountrySupported(iso) {
-  if (LIGHT_ALL_COUNTRIES && iso) return true
   return mapSupportedIsos.value.has(iso)
 }
 
@@ -657,7 +752,6 @@ function isGreenland(feature) {
  * @param {object} feature
  */
 function showsWorldStaticSupported(feature) {
-  if (LIGHT_ALL_COUNTRIES) return isFeatureMapLit(feature)
   if (!feature.iso || !isCountrySupported(feature.iso)) return false
   if (isGreenland(feature)) return false
   return true
@@ -665,7 +759,6 @@ function showsWorldStaticSupported(feature) {
 
 /** @param {object} feature */
 function isCountrySupportedVisual(feature) {
-  if (LIGHT_ALL_COUNTRIES) return isFeatureMapLit(feature)
   if (viewLevel.value === 'world') {
     return showsWorldStaticSupported(feature) ||
       (isGreenland(feature) && hoveredGreenland.value && feature.iso && isCountrySupported(feature.iso))
@@ -686,8 +779,7 @@ function isRegionAvailable(regionId) {
 /** @param {object} feature */
 function isRegionHovered(feature) {
   if (isGreenland(feature)) return false
-  if (!LIGHT_ALL_COUNTRIES && (!feature.iso || !isCountrySupported(feature.iso))) return false
-  if (LIGHT_ALL_COUNTRIES && !isFeatureMapLit(feature)) return false
+  if (!feature.iso || !isCountrySupported(feature.iso)) return false
   return viewLevel.value === 'world' &&
     feature.regionId &&
     feature.regionId === hoveredRegionId.value
@@ -731,21 +823,16 @@ function isCountryHovered(feature) {
 function getCountryFill(feature) {
   const iso = feature.iso
   const regionId = feature.regionId
-  const supported = isFeatureMapLit(feature)
+  const supported = iso && isCountrySupported(iso)
   const hovered = isCountryHovered(feature) && supported
 
   if (viewLevel.value === 'world') {
     const directHover = iso === hoveredIso.value || (isGreenland(feature) && hoveredGreenland.value)
     const regionBatchHover = isRegionHovered(feature)
-    const worldDimmed = isWorldDimmed(feature)
 
-    if (isGreenland(feature) && !LIGHT_ALL_COUNTRIES) {
+    if (isGreenland(feature)) {
       if (!hoveredGreenland.value) return MAP_COLORS.unsupported
       return supported ? MAP_COLORS.supportedHover : MAP_COLORS.unsupported
-    }
-
-    if (worldDimmed) {
-      return supported ? '#d9d2fe' : MAP_COLORS.unsupported
     }
 
     if (!supported) {
@@ -827,40 +914,9 @@ function updateTooltipPos(e) {
   tooltipSyncFrame = requestAnimationFrame(() => {
     tooltipSyncFrame = 0
     if (pendingTooltipPos) {
-      if (!tooltipTargetPos && !tooltipAnimationFrame) {
-        tooltipPos.value = { ...pendingTooltipPos }
-      }
-      tooltipTargetPos = {
-        x: pendingTooltipPos.x,
-        y: pendingTooltipPos.y
-      }
-      if (!tooltipAnimationFrame) animateTooltipTowardsTarget()
+      tooltipPos.value = pendingTooltipPos
     }
   })
-}
-
-/** 让 tooltip 平滑追踪鼠标而不是逐帧跳点 */
-function animateTooltipTowardsTarget() {
-  if (!tooltipTargetPos) {
-    tooltipAnimationFrame = 0
-    return
-  }
-
-  const dx = tooltipTargetPos.x - tooltipPos.value.x
-  const dy = tooltipTargetPos.y - tooltipPos.value.y
-
-  if (Math.abs(dx) < 0.6 && Math.abs(dy) < 0.6) {
-    tooltipPos.value = { ...tooltipTargetPos }
-    tooltipAnimationFrame = 0
-    return
-  }
-
-  tooltipPos.value = {
-    x: tooltipPos.value.x + dx * 0.22,
-    y: tooltipPos.value.y + dy * 0.22
-  }
-
-  tooltipAnimationFrame = requestAnimationFrame(animateTooltipTowardsTarget)
 }
 
 /** 交互态变更后同步地图着色 */
@@ -964,11 +1020,6 @@ function onMapLeave() {
   hoveredRegionId.value = null
   hoveredGreenland.value = false
   hoveredFeature.value = null
-  tooltipTargetPos = null
-  if (tooltipAnimationFrame) {
-    cancelAnimationFrame(tooltipAnimationFrame)
-    tooltipAnimationFrame = 0
-  }
   refreshMapInteractionState()
 }
 
@@ -987,11 +1038,6 @@ function onPanelRegionLeave() {
   lastHoveredFeatureIndex = -1
   hoveredRegionId.value = null
   hoveredFeature.value = null
-  tooltipTargetPos = null
-  if (tooltipAnimationFrame) {
-    cancelAnimationFrame(tooltipAnimationFrame)
-    tooltipAnimationFrame = 0
-  }
   refreshMapInteractionState()
 }
 
@@ -1530,22 +1576,7 @@ async function loadChinaTerritoryOverlays(chinaDisplayName) {
 function expandCountryGeoFeatures(feature) {
   const polygons = extractPolygonGeometries(feature.geo)
   if (!polygons.length) return [feature]
-
-  if (MAP_NAMES_WITHOUT_REGION.has(feature.name)) {
-    if (polygons.length === 1) return [{ ...feature, regionId: null }]
-    return polygons.map((geo, index) => ({
-      ...feature,
-      geo,
-      regionId: null,
-      numericId: `${feature.numericId}-${index}`
-    }))
-  }
-
-  if (polygons.length === 1) {
-    if (feature.regionId) return [feature]
-    const [lng, lat] = d3.geoCentroid(feature.geo)
-    return [{ ...feature, regionId: regionIdFromCoordinates(lng, lat) }]
-  }
+  if (polygons.length === 1) return [feature]
 
   const parts = polygons.map(geo => ({
     geo,
@@ -1592,8 +1623,8 @@ async function loadWorldMap() {
           numericId: geo.id,
           name: mapName,
           displayName: unified ? chinaDisplayName : (cmsCountry?.name || mapName),
-          regionId: MAP_NAMES_WITHOUT_REGION.has(mapName)
-            ? null
+          regionId: mapName === 'Greenland'
+            ? 'north-america'
             : (iso ? isoToMapRegionId(iso) : null),
           geo
         }
@@ -1635,7 +1666,6 @@ onUnmounted(() => {
   featurePathNodes.value = []
   if (mapVisualSyncFrame) cancelAnimationFrame(mapVisualSyncFrame)
   if (tooltipSyncFrame) cancelAnimationFrame(tooltipSyncFrame)
-  if (tooltipAnimationFrame) cancelAnimationFrame(tooltipAnimationFrame)
 })
 </script>
 
@@ -1791,7 +1821,7 @@ onUnmounted(() => {
 }
 
 .ca-map__region-dropdown--open .ca-map__region-menu-wrap {
-  max-height: min(452px, calc(100vh - 260px), calc(100dvh - 260px));
+  max-height: min(360px, calc(100vh - 320px), calc(100dvh - 320px));
   opacity: 1;
   pointer-events: auto;
 }
@@ -1896,7 +1926,7 @@ onUnmounted(() => {
 }
 
 .ca-map__country--world-dimmed {
-  opacity: 1;
+  opacity: 0.32;
 }
 
 .ca-map__country--region-dimmed {
@@ -1911,27 +1941,44 @@ onUnmounted(() => {
 /* Tooltip */
 .ca-map__tooltip {
   pointer-events: none;
-  padding: 14px 18px;
-  background: #fff;
-  border: 1px solid rgba(230, 233, 240, 0.96);
-  border-radius: 12px;
-  color: #111827;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 6px 10px;
+  background: #111827;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
   white-space: nowrap;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
-  will-change: transform, left, top;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
 
 .ca-map__tooltip--fixed {
   position: fixed;
   z-index: 400;
-  transform: translate(-50%, calc(-100% - 18px));
+  transform: translate(-50%, -180%);
+}
+
+.ca-map__tooltip-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #111827;
 }
 
 .ca-map__tooltip-name {
   display: block;
-  line-height: 1.1;
+  font-weight: 600;
+}
+
+.ca-map__tooltip-meta {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
 }
 
 .fade-enter-active,
@@ -2037,7 +2084,7 @@ onUnmounted(() => {
 
 .ca-map__panel-list--regions {
   padding: 16px;
-  max-height: min(452px, calc(100vh - 260px), calc(100dvh - 260px));
+  max-height: min(360px, calc(100vh - 320px), calc(100dvh - 320px));
   overflow-y: auto;
 }
 
@@ -2304,3 +2351,416 @@ onUnmounted(() => {
   }
 }
 </style>
+
+```
+
+---
+
+## 8. 地理工具完整源码
+
+```javascript
+/**
+ * 地图国家名 → ISO2 映射（适配 world-map.json 中的 name 字段）
+ */
+export const NAME_TO_ISO = {
+  Afghanistan: 'AF',
+  Albania: 'AL',
+  Algeria: 'DZ',
+  Andorra: 'AD',
+  'Antigua and Barb.': 'AG',
+  Angola: 'AO',
+  Argentina: 'AR',
+  Armenia: 'AM',
+  Australia: 'AU',
+  Austria: 'AT',
+  Azerbaijan: 'AZ',
+  Bahamas: 'BS',
+  Bahrain: 'BH',
+  Bangladesh: 'BD',
+  Barbados: 'BB',
+  Belarus: 'BY',
+  Belgium: 'BE',
+  Belize: 'BZ',
+  Benin: 'BJ',
+  Bhutan: 'BT',
+  Bolivia: 'BO',
+  'Bosnia and Herz.': 'BA',
+  Botswana: 'BW',
+  Brazil: 'BR',
+  Brunei: 'BN',
+  Bulgaria: 'BG',
+  'Burkina Faso': 'BF',
+  Burundi: 'BI',
+  'Cabo Verde': 'CV',
+  Cambodia: 'KH',
+  Cameroon: 'CM',
+  Canada: 'CA',
+  'Central African Rep.': 'CF',
+  Chad: 'TD',
+  Chile: 'CL',
+  China: 'CN',
+  Colombia: 'CO',
+  Comoros: 'KM',
+  Congo: 'CG',
+  'Cook Is.': 'CK',
+  'Costa Rica': 'CR',
+  Croatia: 'HR',
+  Cuba: 'CU',
+  Cyprus: 'CY',
+  Czechia: 'CZ',
+  "Côte d'Ivoire": 'CI',
+  'Dem. Rep. Congo': 'CD',
+  Denmark: 'DK',
+  Djibouti: 'DJ',
+  Dominica: 'DM',
+  'Dominican Rep.': 'DO',
+  Ecuador: 'EC',
+  Egypt: 'EG',
+  'El Salvador': 'SV',
+  'Eq. Guinea': 'GQ',
+  Eritrea: 'ER',
+  Estonia: 'EE',
+  Ethiopia: 'ET',
+  Fiji: 'FJ',
+  Finland: 'FI',
+  France: 'FR',
+  Gabon: 'GA',
+  Gambia: 'GM',
+  Georgia: 'GE',
+  Germany: 'DE',
+  Ghana: 'GH',
+  Greece: 'GR',
+  Grenada: 'GD',
+  Greenland: 'GL',
+  Guatemala: 'GT',
+  Guinea: 'GN',
+  'Guinea-Bissau': 'GW',
+  Guyana: 'GY',
+  Haiti: 'HT',
+  Honduras: 'HN',
+  'Hong Kong': 'HK',
+  Hungary: 'HU',
+  Iceland: 'IS',
+  India: 'IN',
+  Indonesia: 'ID',
+  Iran: 'IR',
+  Iraq: 'IQ',
+  Ireland: 'IE',
+  Israel: 'IL',
+  Italy: 'IT',
+  Jamaica: 'JM',
+  Japan: 'JP',
+  Jordan: 'JO',
+  Kazakhstan: 'KZ',
+  Kenya: 'KE',
+  Kiribati: 'KI',
+  Kosovo: 'XK',
+  Kuwait: 'KW',
+  Kyrgyzstan: 'KG',
+  Laos: 'LA',
+  Latvia: 'LV',
+  Lebanon: 'LB',
+  Lesotho: 'LS',
+  Liberia: 'LR',
+  Libya: 'LY',
+  Lithuania: 'LT',
+  Luxembourg: 'LU',
+  Macao: 'MO',
+  Macedonia: 'MK',
+  Madagascar: 'MG',
+  Malawi: 'MW',
+  Malaysia: 'MY',
+  Maldives: 'MV',
+  Mali: 'ML',
+  Malta: 'MT',
+  'Marshall Is.': 'MH',
+  Mauritius: 'MU',
+  Mauritania: 'MR',
+  Mexico: 'MX',
+  Micronesia: 'FM',
+  Moldova: 'MD',
+  Monaco: 'MC',
+  Mongolia: 'MN',
+  Montenegro: 'ME',
+  Morocco: 'MA',
+  Mozambique: 'MZ',
+  Myanmar: 'MM',
+  Nauru: 'NR',
+  Namibia: 'NA',
+  Nepal: 'NP',
+  Netherlands: 'NL',
+  'New Zealand': 'NZ',
+  Nicaragua: 'NI',
+  Niger: 'NE',
+  Nigeria: 'NG',
+  'North Korea': 'KP',
+  Norway: 'NO',
+  Oman: 'OM',
+  Pakistan: 'PK',
+  Palau: 'PW',
+  Palestine: 'PS',
+  Panama: 'PA',
+  'Papua New Guinea': 'PG',
+  Paraguay: 'PY',
+  Peru: 'PE',
+  Philippines: 'PH',
+  Poland: 'PL',
+  Portugal: 'PT',
+  Qatar: 'QA',
+  Romania: 'RO',
+  Russia: 'RU',
+  Rwanda: 'RW',
+  'Saint Lucia': 'LC',
+  Samoa: 'WS',
+  'San Marino': 'SM',
+  'São Tomé and Principe': 'ST',
+  'S. Sudan': 'SS',
+  'Saudi Arabia': 'SA',
+  Senegal: 'SN',
+  Serbia: 'RS',
+  Seychelles: 'SC',
+  'Sierra Leone': 'SL',
+  Singapore: 'SG',
+  'Solomon Is.': 'SB',
+  Slovakia: 'SK',
+  Slovenia: 'SI',
+  Somalia: 'SO',
+  'South Africa': 'ZA',
+  'South Korea': 'KR',
+  Spain: 'ES',
+  'Sri Lanka': 'LK',
+  'St. Kitts and Nevis': 'KN',
+  'St. Vin. and Gren.': 'VC',
+  Sudan: 'SD',
+  Suriname: 'SR',
+  Sweden: 'SE',
+  Switzerland: 'CH',
+  Syria: 'SY',
+  Tajikistan: 'TJ',
+  Tanzania: 'TZ',
+  Thailand: 'TH',
+  'Timor-Leste': 'TL',
+  Togo: 'TG',
+  Tonga: 'TO',
+  'Trinidad and Tobago': 'TT',
+  Tunisia: 'TN',
+  Turkey: 'TR',
+  Turkmenistan: 'TM',
+  Uganda: 'UG',
+  Ukraine: 'UA',
+  'United Arab Emirates': 'AE',
+  'United Kingdom': 'GB',
+  'United States of America': 'US',
+  Uruguay: 'UY',
+  Uzbekistan: 'UZ',
+  Vanuatu: 'VU',
+  Venezuela: 'VE',
+  Vietnam: 'VN',
+  Yemen: 'YE',
+  Zambia: 'ZM',
+  Zimbabwe: 'ZW',
+  eSwatini: 'SZ'
+}
+
+/** ISO2 → 地图展示区域 ID（8 区，对齐 Ramp Browse regions） */
+export const REGION_IDS = [
+  'africa',
+  'asia',
+  'caribbean-central-america',
+  'europe',
+  'middle-east',
+  'north-america',
+  'south-america',
+  'oceania'
+]
+
+export const ISO_TO_REGION = {
+  US: 'north-america', CA: 'north-america', MX: 'north-america', GL: 'north-america',
+  GT: 'caribbean-central-america', BZ: 'caribbean-central-america', SV: 'caribbean-central-america',
+  HN: 'caribbean-central-america', NI: 'caribbean-central-america', CR: 'caribbean-central-america',
+  PA: 'caribbean-central-america', CU: 'caribbean-central-america', DO: 'caribbean-central-america',
+  HT: 'caribbean-central-america', JM: 'caribbean-central-america', TT: 'caribbean-central-america',
+  BB: 'caribbean-central-america', AG: 'caribbean-central-america', DM: 'caribbean-central-america',
+  GD: 'caribbean-central-america', KN: 'caribbean-central-america', LC: 'caribbean-central-america',
+  VC: 'caribbean-central-america', BS: 'caribbean-central-america',
+  BR: 'south-america', AR: 'south-america', CL: 'south-america', CO: 'south-america',
+  PE: 'south-america', VE: 'south-america', EC: 'south-america', BO: 'south-america',
+  PY: 'south-america', UY: 'south-america', GY: 'south-america', SR: 'south-america',
+  GB: 'europe', IE: 'europe', FR: 'europe', DE: 'europe', ES: 'europe', PT: 'europe',
+  IT: 'europe', NL: 'europe', BE: 'europe', LU: 'europe', AT: 'europe', CH: 'europe',
+  SE: 'europe', NO: 'europe', DK: 'europe', FI: 'europe', IS: 'europe', PL: 'europe',
+  CZ: 'europe', SK: 'europe', HU: 'europe', RO: 'europe', BG: 'europe', GR: 'europe',
+  HR: 'europe', SI: 'europe', RS: 'europe', BA: 'europe', ME: 'europe', MK: 'europe',
+  AL: 'europe', EE: 'europe', LV: 'europe', LT: 'europe', XK: 'europe', CY: 'europe',
+  MT: 'europe', AD: 'europe', MC: 'europe', SM: 'europe',
+  /** 波兰–罗马尼亚以东：不计入欧洲批量高亮（对齐 Ramp 全球视图） */
+  RU: 'asia', BY: 'asia', UA: 'asia', MD: 'asia',
+  CN: 'asia', JP: 'asia', KR: 'asia', TW: 'asia', HK: 'asia', MO: 'asia',
+  IN: 'asia', PK: 'asia', BD: 'asia', TH: 'asia', VN: 'asia', MY: 'asia', SG: 'asia',
+  ID: 'asia', PH: 'asia', KZ: 'asia', UZ: 'asia', MN: 'asia', NP: 'asia', LK: 'asia',
+  MM: 'asia', KH: 'asia', LA: 'asia', TL: 'asia', BN: 'asia', AF: 'asia', BT: 'asia',
+  MV: 'asia', KP: 'asia', KG: 'asia', TJ: 'asia', TM: 'asia', AZ: 'asia', AM: 'asia',
+  GE: 'asia',
+  AU: 'oceania', NZ: 'oceania', FJ: 'oceania', PG: 'oceania', CK: 'oceania', KI: 'oceania',
+  MH: 'oceania', FM: 'oceania', PW: 'oceania', NR: 'oceania', TV: 'oceania', WS: 'oceania',
+  TO: 'oceania', SB: 'oceania', VU: 'oceania',
+  AE: 'middle-east', SA: 'middle-east', IL: 'middle-east', TR: 'middle-east',
+  IQ: 'middle-east', IR: 'middle-east', JO: 'middle-east', LB: 'middle-east',
+  KW: 'middle-east', OM: 'middle-east', QA: 'middle-east', BH: 'middle-east',
+  YE: 'middle-east', PS: 'middle-east', SY: 'middle-east',
+  EG: 'africa', ZA: 'africa', NG: 'africa', KE: 'africa', GH: 'africa', TZ: 'africa',
+  ET: 'africa', MA: 'africa', DZ: 'africa', TN: 'africa', AO: 'africa', MZ: 'africa',
+  ZM: 'africa', ZW: 'africa', UG: 'africa', SN: 'africa', CI: 'africa', CM: 'africa',
+  SD: 'africa', SS: 'africa', RW: 'africa', BW: 'africa', NA: 'africa', MG: 'africa',
+  ML: 'africa', BF: 'africa', NE: 'africa', TD: 'africa', LY: 'africa', SO: 'africa',
+  CD: 'africa', CG: 'africa', GA: 'africa', GN: 'africa', SL: 'africa', LR: 'africa',
+  BJ: 'africa', BI: 'africa', CF: 'africa', DJ: 'africa', ER: 'africa', GM: 'africa',
+  GW: 'africa', CV: 'africa', KM: 'africa', ST: 'africa', SC: 'africa', MU: 'africa',
+  MR: 'africa', MW: 'africa', LS: 'africa', SZ: 'africa', TG: 'africa', GQ: 'africa'
+}
+
+/** Natural Earth 50m：中国大陆 numeric id */
+export const CHINA_MAINLAND_ID = '156'
+
+/** 地图上与中国同一视觉/交互主体的属地块（台湾、港澳） */
+export const CHINA_UNIFIED_TERRITORY_IDS = new Set(['158', '344', '446'])
+
+/** 钓鱼岛诸岛近似中心坐标 [lng, lat]（Natural Earth 划入日本，叠加中国属地块） */
+export const DIAOYU_ISLAND_COORDS = [
+  [123.473, 25.746],
+  [123.478, 25.756],
+  [123.455, 25.746]
+]
+
+/**
+ * 藏南等争议区叠加数据（由 scripts/build-cn-claimed-overlays.py 生成）
+ * 来源：Natural Earth 50m ne_50m_admin_0_breakaway_disputed_areas，ADM0_A3_CN === CHN
+ */
+export const CN_CLAIMED_TERRITORIES_SOURCE =
+  'Natural Earth 50m disputed areas (China administrative perspective)'
+
+/**
+ * 是否为需与中国大陆统一展示/交互的属地块
+ * @param {string|null|undefined} numericId
+ * @param {string} [mapName]
+ * @returns {boolean}
+ */
+export function isChinaUnifiedTerritory(numericId, mapName) {
+  const id = numericId ? String(numericId) : ''
+  if (id && CHINA_UNIFIED_TERRITORY_IDS.has(id)) return true
+  return mapName === 'Taiwan' || mapName === 'Hong Kong' || mapName === 'Macao'
+}
+
+/**
+ * 国界 mesh 是否应绘制（中国大陆与合一属地块之间不画分隔缝）
+ * @param {string} idA
+ * @param {string} idB
+ * @returns {boolean}
+ */
+export function shouldDrawBorderBetween(idA, idB) {
+  const chinaGroup = new Set([CHINA_MAINLAND_ID, ...CHINA_UNIFIED_TERRITORY_IDS])
+  if (chinaGroup.has(String(idA)) && chinaGroup.has(String(idB))) return false
+  return true
+}
+
+/**
+ * @param {string} mapName
+ * @returns {string|null}
+ */
+export function mapNameToIso(mapName) {
+  return NAME_TO_ISO[mapName] || null
+}
+
+/**
+ * @param {string} iso
+ * @returns {string|null}
+ */
+export function isoToRegionId(iso) {
+  return ISO_TO_REGION[iso] || null
+}
+
+/**
+ * 地图交互用区域 ID（批量悬浮高亮、区域面板归属）
+ * @param {string} iso
+ * @returns {string|null}
+ */
+export function isoToMapRegionId(iso) {
+  return isoToRegionId(iso)
+}
+
+/**
+ * 按质心经纬度判定地图展示区域（地理分区）
+ * @param {number} lng
+ * @param {number} lat
+ * @returns {string|null}
+ */
+export function regionIdFromCoordinates(lng, lat) {
+  if (lat < -60) return null
+
+  if (
+    (lng >= 110 && lat <= -8) ||
+    (lng >= 140 && lat < 12 && lat >= -50) ||
+    (lng >= 165 && lat < 5)
+  ) {
+    return 'oceania'
+  }
+
+  if (lng >= -170 && lng <= -30) {
+    if (lat >= 23) return 'north-america'
+    if (lat >= 7 && lng >= -118 && lng <= -77) return 'caribbean-central-america'
+    if (lat >= 10 && lat < 23 && lng >= -95) return 'caribbean-central-america'
+    if (lat >= 5 && lat < 25 && lng >= -85) return 'caribbean-central-america'
+    if (lat < 15) return 'south-america'
+    return 'north-america'
+  }
+
+  if (lat >= 36 && lng >= -12 && lng <= 32) return 'europe'
+  if (lat >= 35 && lng >= -25 && lng <= 28) return 'europe'
+
+  if (lat >= 12 && lat <= 42 && lng >= 26 && lng <= 63) return 'middle-east'
+
+  if (lat >= -35 && lat < 38 && lng >= -20 && lng <= 55) return 'africa'
+
+  if (lng > 25 || lat > 5) return 'asia'
+
+  return 'africa'
+}
+
+/**
+ * 欧洲母国海外属地在美洲时按地理区域展示，避免法属圭亚那等误归入欧洲
+ * @param {string|null} primaryRegionId
+ * @param {number} lng
+ * @param {number} lat
+ * @param {boolean} isPrimaryPart
+ * @returns {string|null}
+ */
+export function resolvePolygonDisplayRegion(primaryRegionId, lng, lat, isPrimaryPart) {
+  if (!primaryRegionId || isPrimaryPart) return primaryRegionId
+
+  const geoRegion = regionIdFromCoordinates(lng, lat)
+  const europeOverseasTargets = new Set([
+    'caribbean-central-america',
+    'south-america',
+    'north-america'
+  ])
+  if (primaryRegionId === 'europe' && europeOverseasTargets.has(geoRegion)) {
+    return geoRegion
+  }
+
+  return primaryRegionId
+}
+
+/**
+ * @param {import('geojson').Geometry|object} geometry
+ * @returns {object[]}
+ */
+export function extractPolygonGeometries(geometry) {
+  if (!geometry) return []
+  if (geometry.type === 'Polygon') return [geometry]
+  if (geometry.type === 'MultiPolygon') {
+    return geometry.coordinates.map(coords => ({ type: 'Polygon', coordinates: coords }))
+  }
+  return []
+}
+
+```
