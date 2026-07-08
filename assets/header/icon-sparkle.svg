@@ -1,0 +1,19 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M7.556 6.083L10.889 7.861L7.556 9.639L5.778 12.972L4 9.639L0.667 7.861L4 6.083L5.778 2.75L7.556 6.083Z" fill="url(#sparkle-a)"/>
+  <path d="M12.657 2.315L14.306 3.194L12.657 4.074L11.777 5.722L10.898 4.074L9.25 3.194L10.898 2.315L11.778 0.667L12.657 2.315Z" fill="url(#sparkle-b)"/>
+  <path d="M13.556 10.75L15.639 11.861L13.556 12.972L12.444 15.056L11.333 12.972L9.25 11.861L11.333 10.75L12.444 8.667L13.556 10.75Z" fill="url(#sparkle-c)"/>
+  <defs>
+    <linearGradient id="sparkle-a" x1="0.667" y1="7.861" x2="10.889" y2="7.861" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7038F3"/>
+      <stop offset="1" stop-color="#04D79B"/>
+    </linearGradient>
+    <linearGradient id="sparkle-b" x1="9.25" y1="3.194" x2="14.306" y2="3.194" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7038F3"/>
+      <stop offset="1" stop-color="#04D79B"/>
+    </linearGradient>
+    <linearGradient id="sparkle-c" x1="9.25" y1="11.861" x2="15.639" y2="11.861" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6879FF"/>
+      <stop offset="1" stop-color="#11EBB7"/>
+    </linearGradient>
+  </defs>
+</svg>
